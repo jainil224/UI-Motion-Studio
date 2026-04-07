@@ -31,15 +31,12 @@ export const Navbar = () => {
           </a>
 
           <div className="hidden lg:flex items-center gap-8">
-            {['Templates', 'Prompts', 'Pricing', 'Guide', 'UI HUB'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all"
-              >
-                {item}
-              </a>
-            ))}
+            <a href="#prompts" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all">
+              Prompts
+            </a>
+            <a href="https://ui-hub-design.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all">
+              UI HUB
+            </a>
           </div>
 
           <button className="relative px-4 py-1.5 md:px-6 md:py-2 rounded-full overflow-hidden group shrink-0 ml-2">
