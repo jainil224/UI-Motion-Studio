@@ -1,0 +1,36 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans antialiased overflow-x-hidden;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-accent;
+  }
+  
+  .glass-card {
+    @apply bg-white/[0.03] border border-white/[0.08] backdrop-blur-md rounded-2xl;
+  }
+  
+  .glass-nav {
+    @apply bg-white/5 border border-white/10 backdrop-blur-[24px] shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+  
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: "";
+    @apply absolute -inset-[1px] bg-gradient-to-r from-primary via-accent to-warning rounded-2xl z-[-1] opacity-50 blur-sm transition-opacity duration-300;
+  }
+  .glow-border:hover::before {
+    @apply opacity-100 blur-md;
+  }
+}
