@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# UI Motion Studio 🎬✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **UI Motion Studio** – A premium, futuristic SaaS platform providing high-quality animated landing page templates and AI-powered prompt libraries. Users can explore beautifully crafted, copy-paste-ready motion designs to instantly generate modern websites.
 
-Currently, two official plugins are available:
+## 🚀 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+UI Motion Studio is designed with a state-of-the-art cinematic aesthetic. It leverages a pure dark theme (`#000000`), aggressive glassmorphism mechanics, and high-performance scroll-driven animations.
 
-## React Compiler
+See the live codebase features:
+- **Cinematic Hero**: Fullscreen looping AWS video background with smooth Framer Motion entry choreographies.
+- **Glassmorphism UI**: High-end heavily frosted floating navigational pills and feature cards.
+- **Modern Tech Stack**: Built entirely on React 19, Vite, and Tailwind CSS v3.
+- **Component Ecosystem**: Seamless integration features for combining with UI HUB components.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Features
 
-## Expanding the ESLint configuration
+- **Animated Templates Grid**: A modular showcase layout to preview dynamic site architectures.
+- **AI Prompt Library**: Readily available copy-paste prompts designed for modern Generative UI systems.
+- **Fully Responsive**: Flawless scaling from widescreen cinema displays down to mobile phones.
+- **Gradient Accents**: Custom multi-stop gradients across text (`<GradientText>`) and backgrounds to ensure a rich, depth-focused design.
+- **Performant**: Next-generation Vite bundling ensuring millisecond build speeds and extremely lightweight footprint.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS v3](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Quick Start
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Ensure you have Node.js installed, then follow these steps to run the application locally:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/jainil224/UI-Motion-Studio.git
+   cd UI-Motion-Studio
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## 🎨 Design System
+
+**Typography:**
+- Primary Font: *General Sans* (Fontshare) 
+
+**Color Palette:**
+- Base: `Pure Black (#000000)`
+- Primary: `Purple (#7C3AED)`
+- Accent: `Blue (#3B82F6)`
+- Warning: `Orange (#F97316)`
+
+## 📄 License & Rights
+Developed and maintained by **Jainil**. All rights reserved.
