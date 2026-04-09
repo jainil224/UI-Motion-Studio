@@ -1,8 +1,112 @@
-import { motion, type Variants } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { GalleryCard } from '../ui/GalleryCard';
-import { ArrowRight, Rocket } from 'lucide-react';
+import { ArrowRight, Rocket, X, Copy } from 'lucide-react';
 
 const templates = [
+  {
+    title: 'Synapse Hero',
+    category: 'SaaS / Tech',
+    video: '/videos/ui motion .mp4',
+    prompt: `AI Prompt: High-Fidelity "Synapse" Hero Section with Immersive Video
+
+Objective:
+Create a production-grade, dark-themed Hero Section for a brand called "Synapse" using React, Tailwind CSS, and Framer Motion (motion/react).
+
+1. Global Theme & Typography:
+- Background: Solid black (#000000)
+- Font: "Inter" (Sans-serif)
+- Selection Color: White with 20% opacity
+
+2. Navbar Component:
+- Position: Fixed top, full width, z-index: 50
+- Style: backdrop-blur-md, bg-black/10, border-b border-white/5
+
+- Logo:
+  - Text: "Synapse"
+  - Style: font-medium, tracking-tight, text-white
+
+- Links:
+  - Features: Active with gradient border (Blue → Purple → Pink) + black inner fill
+  - Insights, About, Contact: text-white/60, hover:text-white
+  - Case Studies: text-white/40, line-through
+
+- CTA Button:
+  - Text: "Get Started for Free"
+  - Style: pill-shaped, bg-gradient-to-r from-white to-gray-300, text-black
+
+3. Background Video (Crucial):
+- Video URL:
+  https://res.cloudinary.com/dsn0ks2hl/video/upload/v1775705105/jp_odqxjd.mp4
+
+- Implementation:
+  - Create VideoPlayer component
+  - Properties: autoPlay, muted, loop, playsInline
+
+- Positioning:
+  - absolute inset-0
+  - flex items-center justify-center
+
+- Container:
+  - Height: 80vh
+
+- Visual Polish:
+  - Apply radial gradient mask:
+    bg-radial-[circle_at_center] from-transparent via-black/20 to-black
+
+4. Hero Content Layout:
+- Container:
+  - Centered, relative, z-index: 10, text-center
+
+- Badges:
+  - 3 glass-effect badges:
+    • Integrated with AI (Cpu icon)
+    • Integrated with Cloud (Zap icon)
+    • Integrated with Security (Shield icon)
+  - Style:
+    bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-4 py-2
+
+- Headline:
+  - Text:
+    "Where Innovation
+     Meets Execution"
+  - Style:
+    text-6xl md:text-8xl font-medium tracking-tight leading-[0.95]
+
+- Subtext:
+  - 2-line description
+  - Style:
+    text-white/60 max-w-2xl mx-auto
+
+- Buttons:
+  - Primary:
+    "Get Started for Free"
+    bg-black border border-white/20 text-white px-6 py-3 rounded-full
+
+  - Secondary:
+    "Let's Get Connected"
+    bg-white/5 backdrop-blur-md border border-white/10 text-white px-6 py-3 rounded-full
+
+5. Logo Marquee (Footer):
+- Content:
+  - Row of grayscale logos (Aether, Nova, Vertex)
+- Style:
+  - opacity-40 hover:opacity-100 transition
+  - flex gap-24 justify-center items-center
+
+6. Animations (Framer Motion):
+- Use staggerChildren container
+- Apply Fade-In-Up animation to:
+  - Badges
+  - Headline
+  - Subtext
+  - Buttons
+
+- Animation Settings:
+  - duration: 0.8
+  - ease: [0.21, 0.47, 0.32, 0.98]`,
+    isPremium: true,
+  },
   {
     title: 'Space Voyage',
     category: 'Landing Page',
@@ -39,6 +143,7 @@ const templates = [
 ];
 
 export const ShowcaseSection = () => {
+  const [selectedTemplate, setSelectedTemplate] = useState<any>(null);
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -174,13 +279,92 @@ export const ShowcaseSection = () => {
                 key={idx}
                 title={item.title!}
                 category={item.category!}
-                image={item.image!}
+                image={item.image}
+                video={item.video}
+                prompt={item.prompt}
                 isPremium={item.isPremium}
+                onClick={() => setSelectedTemplate(item)}
               />
             )
           ))}
         </div>
       </div>
+
+      {/* Preview Modal */}
+      <AnimatePresence>
+        {selectedTemplate && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedTemplate(null)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-6xl aspect-video md:aspect-[16/10] bg-[#121212] rounded-[32px] border border-white/10 overflow-hidden shadow-2xl"
+            >
+              {/* Modal Header */}
+              <div className="absolute top-0 inset-x-0 z-20 p-6 flex items-center justify-between bg-gradient-to-b from-black/60 to-transparent">
+                <div className="flex flex-col">
+                  <h3 className="text-2xl font-bold text-white tracking-tight">
+                    {selectedTemplate.title}
+                  </h3>
+                  <p className="text-sm text-white/50 font-medium uppercase tracking-wider">
+                    {selectedTemplate.category}
+                  </p>
+                </div>
+                
+                <div className="flex items-center gap-4">
+                  {selectedTemplate.prompt && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigator.clipboard.writeText(selectedTemplate.prompt);
+                      }}
+                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-wider hover:bg-white/20 transition-all active:scale-95"
+                    >
+                      <Copy className="w-4 h-4" />
+                      Copy Prompt
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setSelectedTemplate(null)}
+                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-all"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Modal Body (Content) */}
+              <div className="w-full h-full">
+                {selectedTemplate.video ? (
+                  <video
+                    src={selectedTemplate.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={selectedTemplate.image}
+                    alt={selectedTemplate.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
