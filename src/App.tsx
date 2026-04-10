@@ -2,7 +2,6 @@ import { Navbar } from '@/components/ui/Navbar'
 import { HeroSection } from '@/components/sections/HeroSection'
 import { ShowcaseSection } from '@/components/sections/ShowcaseSection'
 import { UILayoutSection } from '@/components/sections/UILayoutSection'
-import { PromptLibrarySection } from '@/components/sections/PromptLibrarySection'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { IntegrationSection } from '@/components/sections/IntegrationSection'
 import { PricingSection } from '@/components/sections/PricingSection'
@@ -17,7 +16,6 @@ function App() {
         <HeroSection />
         <ShowcaseSection />
         <UILayoutSection />
-        <PromptLibrarySection />
         <FeaturesSection />
         <IntegrationSection />
         <PricingSection />

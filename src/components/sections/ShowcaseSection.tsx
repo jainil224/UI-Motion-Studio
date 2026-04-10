@@ -1081,23 +1081,84 @@ export const ShowcaseSection = () => {
               </div>
 
               {/* Modal Body (Content) - Scrollable Area */}
-              <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 pt-24 md:pt-32">
-                {selectedTemplate.video ? (
-                  <video
-                    src={selectedTemplate.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto object-cover"
-                  />
-                ) : (
-                  <img
-                    src={selectedTemplate.image}
-                    alt={selectedTemplate.title}
-                    className="w-full h-auto object-cover"
-                  />
-                )}
+              <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20">
+                <div className="flex flex-col lg:flex-row min-h-full">
+                  {/* Left Side: Media Preview */}
+                  <div className="lg:flex-[1.2] bg-black flex items-center justify-center p-0 lg:p-4">
+                    <div className="relative w-full h-full lg:rounded-2xl overflow-hidden">
+                      {selectedTemplate.video ? (
+                        <video
+                          src={selectedTemplate.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src={selectedTemplate.image}
+                          alt={selectedTemplate.title}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                      
+                      {/* Ribbon */}
+                      <div className="absolute top-6 left-6 z-10 px-4 py-1.5 bg-primary/20 backdrop-blur-md border border-primary/30 rounded-full">
+                        <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Image Reference</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Side: Prompt Details */}
+                  <div className="lg:flex-1 p-8 lg:p-12 bg-zinc-950/50 flex flex-col gap-8 border-t lg:border-t-0 lg:border-l border-white/5">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-2 text-primary">
+                        <Terminal className="w-5 h-5" />
+                        <h4 className="text-sm font-bold uppercase tracking-widest">Engineering Prompt</h4>
+                      </div>
+                      <p className="text-white/60 text-sm leading-relaxed">
+                        Copy this detailed system instruction to your AI coding assistant (v0, Bolt, Claude) to recreate this exact motion sequence.
+                      </p>
+                    </div>
+
+                    <div className="flex-1 min-h-[300px] p-6 rounded-2xl bg-white/[0.03] border border-white/10 relative group h-full">
+                      <div className="absolute top-4 right-4 flex items-center gap-2 opacity-30 group-hover:opacity-100 transition-opacity">
+                        <Terminal className="w-3.5 h-3.5 text-white/40" />
+                        <span className="text-[10px] text-white/40 font-mono">React + Framer + Tailwind</span>
+                      </div>
+                      
+                      <div className="font-mono text-[13px] text-white/80 leading-relaxed whitespace-pre-wrap h-full overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-white/10">
+                        {selectedTemplate.prompt || "No specific prompt instructions available for this preview."}
+                      </div>
+
+                      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none rounded-b-2xl" />
+                    </div>
+
+                    <div className="flex flex-col gap-3">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigator.clipboard.writeText(selectedTemplate.prompt);
+                          setShowCopied(true);
+                          setTimeout(() => setShowCopied(false), 2000);
+                        }}
+                        className={cn(
+                          "w-full py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition-all active:scale-95",
+                          showCopied 
+                            ? "bg-green-500 text-white" 
+                            : "bg-white text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                        )}
+                      >
+                        <Copy className="w-5 h-5" />
+                        {showCopied ? "Prompt Ready!" : "Copy Reference Prompt"}
+                      </button>
+                      <p className="text-center text-[11px] text-white/20 font-medium tracking-wide">
+                        optimized for Claude 3.5 Sonnet & GPT-4o
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
