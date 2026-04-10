@@ -3,11 +3,10 @@ import React from 'react';
 interface EnvelopeCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
   hueRotate?: string;
 }
 
-export const EnvelopeCard = ({ title, description, icon, hueRotate = '0deg' }: EnvelopeCardProps) => {
+export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: EnvelopeCardProps) => {
   return (
     <>
       <style>{`
@@ -116,12 +115,9 @@ export const EnvelopeCard = ({ title, description, icon, hueRotate = '0deg' }: E
       <div className="env-card cursor-pointer group">
         <div className="boxshadow" />
         <div className="main">
-          {/* Cover Title */}
+          {/* Cover Title (centered text only) */}
           <div className="cover-title">
-            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-white">
-              {icon}
-            </div>
-            <h3 className="text-lg font-semibold">{title}</h3>
+            <h3 className="text-xl font-bold tracking-tight">{title}</h3>
           </div>
 
           <div className="top" />

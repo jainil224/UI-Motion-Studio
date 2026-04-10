@@ -1,28 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileCode2, LayoutTemplate, Sparkles, Zap } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { EnvelopeCard } from '../ui/EnvelopeCard';
 
 const features = [
   {
     title: 'Copy-Paste Prompts',
     description: 'Instant generation via pre-engineered prompts tailored for LLMs.',
-    icon: <FileCode2 className="w-7 h-7 text-primary" />,
   },
   {
     title: 'Ready Templates',
     description: 'Beautiful, conversion-optimized sections available in React & Vite.',
-    icon: <LayoutTemplate className="w-7 h-7 text-accent" />,
   },
   {
     title: 'AI Optimized',
     description: 'Code architecture built specifically to be understood by AI coders.',
-    icon: <Sparkles className="w-7 h-7 text-warning" />,
   },
   {
     title: 'Fast Workflow',
     description: 'From 0 to production in minutes. No struggling with css animations.',
-    icon: <Zap className="w-7 h-7 text-emerald-400" />,
   },
 ];
 
