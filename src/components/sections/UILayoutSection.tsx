@@ -23,8 +23,8 @@ export const UILayoutSection = () => {
           </div>
         </div>
         
-        {/* Content Container */}
-        <div className='relative z-10 flex flex-col items-center pt-24'>
+        {/* Content Container - Adjusted to be 'after' the circle curve */}
+        <div className='relative z-10 flex flex-col items-center pt-[420px] pb-24'>
           {/* Text Content */}
           <article className='text-white w-11/12 max-w-4xl mx-auto block text-center'>
             <motion.div
