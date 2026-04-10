@@ -64,8 +64,6 @@ export const FeaturesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full relative z-10">
           {features.map((feature, idx) => {
-            // Give different standard rotations to match the original css flair
-            const hues = ['0deg', '300deg', '200deg', '60deg'];
             return (
               <motion.div
                 key={idx}
@@ -78,7 +76,6 @@ export const FeaturesSection = () => {
                   title={feature.title}
                   description={feature.description}
                   icon={feature.icon}
-                  hueRotate={hues[idx]}
                 />
               </motion.div>
             );
