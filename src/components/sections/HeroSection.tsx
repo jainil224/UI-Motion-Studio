@@ -21,17 +21,6 @@ export const HeroSection = () => {
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto pt-24 mt-12 md:mt-24 pb-[100px]">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-8 flex items-center justify-center"
-        >
-          <span className="text-[13px] font-medium text-white tracking-wide">
-            New AI Motion Templates Available
-          </span>
-        </motion.div>
 
         {/* Heading */}
         <h1 className="text-4xl md:text-[56px] leading-[1.1] font-bold text-white mb-6 max-w-[800px] text-center">

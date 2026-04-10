@@ -30,15 +30,6 @@ export const FeaturesSection = () => {
       
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="text-center mb-16 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm mb-6"
-          >
-            <Sparkles className="w-4 h-4 text-warning" /> 
-            <span>Supercharged Features</span>
-          </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
