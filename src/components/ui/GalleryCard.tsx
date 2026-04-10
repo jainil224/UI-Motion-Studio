@@ -24,13 +24,14 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
   className,
   onClick,
 }) => {
+  const [copied, setCopied] = React.useState(false);
+
   const handleCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (prompt) {
       navigator.clipboard.writeText(prompt);
-      // Optional: Add a toast or feedback here if needed, 
-      // but the plan didn't specify it. 
-      // I'll keep it simple for now.
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     }
   };
 
@@ -67,10 +68,30 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
           <div className="absolute top-4 right-4 flex items-center gap-2">
             <button 
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold uppercase tracking-wider hover:bg-white/20 transition-all"
+              className={cn(
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-full backdrop-blur-md border transition-all duration-300",
+                copied 
+                  ? "bg-green-500/20 border-green-500/50 text-green-400" 
+                  : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+              )}
             >
-              <Copy className="w-3.5 h-3.5" />
-              Copy
+              {copied ? (
+                <>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="w-3.5 h-3.5 flex items-center justify-center font-bold"
+                  >
+                    ✓
+                  </motion.div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider">Copied</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span className="text-[11px] font-bold uppercase tracking-wider">Copy</span>
+                </>
+              )}
             </button>
 
           </div>

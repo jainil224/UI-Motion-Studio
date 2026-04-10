@@ -131,7 +131,7 @@ Objective: Create a high-end, production-grade Hero Section for a fintech/SaaS b
   * Visual: Slow-moving, fluid, smoke/silk-like grayscale textures
 * Overlay Layers:
   * Black overlay (bg-black/40) for readability
-  * Vertical gradient (black \u2192 transparent)
+  * Vertical gradient (black → transparent)
   * Radial gradient vignette focusing center
 
 2. Typography System (Critical):
@@ -272,6 +272,7 @@ Final Output Expectation:
 
 export const ShowcaseSection = () => {
   const [selectedTemplate, setSelectedTemplate] = useState<any>(null);
+  const [showCopied, setShowCopied] = useState(false);
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -454,11 +455,22 @@ export const ShowcaseSection = () => {
                       onClick={(e) => {
                         e.stopPropagation();
                         navigator.clipboard.writeText(selectedTemplate.prompt);
+                        setShowCopied(true);
+                        setTimeout(() => setShowCopied(false), 2000);
                       }}
-                      className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-bold uppercase tracking-wider hover:bg-white/20 transition-all active:scale-95"
+                      className={cn(
+                        "flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border text-sm font-bold uppercase tracking-wider transition-all active:scale-95",
+                        showCopied 
+                          ? "bg-green-500/20 border-green-500/50 text-green-400" 
+                          : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                      )}
                     >
-                      <Copy className="w-4 h-4" />
-                      Copy Prompt
+                      {showCopied ? "✓ Copied" : (
+                        <>
+                          <Copy className="w-4 h-4" />
+                          Copy Prompt
+                        </>
+                      )}
                     </button>
                   )}
                   <button
