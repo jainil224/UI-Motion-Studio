@@ -25,23 +25,6 @@ export const UILayoutSection = () => {
         
         {/* Content Container */}
         <div className='relative z-10 flex flex-col items-center pt-24'>
-          {/* Animated Icon Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className='relative mb-12'
-          >
-            <div className='absolute inset-0 bg-primary/20 blur-3xl rounded-full' />
-            <div className='relative bg-white/5 backdrop-blur-2xl border border-white/10 p-6 w-32 h-32 flex items-center justify-center rounded-[2.5rem] shadow-2xl'>
-              <div className='relative'>
-                <Box className='w-12 h-12 text-primary absolute -top-1 -left-1 opacity-50 blur-[2px]' />
-                <Layout className='w-12 h-12 text-white relative z-10' />
-              </div>
-            </div>
-          </motion.div>
-          
           {/* Text Content */}
           <article className='text-white w-11/12 max-w-4xl mx-auto block text-center'>
             <motion.div
