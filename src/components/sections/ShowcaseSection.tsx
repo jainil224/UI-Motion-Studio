@@ -924,22 +924,22 @@ export const ShowcaseSection = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-6xl h-[85vh] bg-[#0c0c0c] rounded-[32px] border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col"
+              className="relative w-full max-w-5xl h-[85vh] bg-[#0c0c0c] rounded-3xl border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col"
             >
-              {/* Modal Header */}
-              <div className="shrink-0 p-10 flex items-start justify-between bg-gradient-to-b from-black/90 via-black/40 to-transparent z-20">
-                <div className="flex flex-col gap-1.5">
-                  <h3 className="text-4xl font-extrabold text-white tracking-tighter leading-none">
+              {/* Modal Header - Pinned Top */}
+              <div className="absolute top-0 inset-x-0 z-30 p-5 md:p-8 flex items-center justify-between bg-black/40 backdrop-blur-xl border-b border-white/5">
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                     {selectedTemplate.title}
                   </h3>
-                  <p className="text-[13px] text-white/40 font-bold uppercase tracking-[0.3em] leading-none">
+                  <p className="text-xs md:text-sm text-white/40 font-medium tracking-wide">
                     {selectedTemplate.category}
                   </p>
                 </div>
                 
                 <div className="flex items-center gap-3">
                   {selectedTemplate.isPremium && (
-                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/60 text-[11px] font-bold uppercase tracking-wider">
+                    <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 text-[10px] font-bold uppercase tracking-wider">
                       <Lock className="w-3 h-3 text-yellow-500/80" />
                       Premium
                     </div>
@@ -954,32 +954,28 @@ export const ShowcaseSection = () => {
                         setTimeout(() => setShowCopied(false), 2000);
                       }}
                       className={cn(
-                        "flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border text-sm font-bold uppercase tracking-wider transition-all active:scale-95",
+                        "flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border text-xs md:text-sm font-semibold tracking-wide transition-all active:scale-95",
                         showCopied 
                           ? "bg-green-500/20 border-green-500/50 text-green-400" 
-                          : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                          : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/20"
                       )}
                     >
-                      {showCopied ? "✓ Copied" : (
-                        <>
-                          <Copy className="w-4 h-4" />
-                          Copy Prompt
-                        </>
-                      )}
+                      <Copy className="w-4 h-4" />
+                      {showCopied ? "Copied!" : "Copy Prompt"}
                     </button>
                   )}
                   
                   <button
                     onClick={() => setSelectedTemplate(null)}
-                    className="group p-2.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 text-white/50 hover:text-white hover:bg-black/60 hover:border-white/20 transition-all"
+                    className="p-2 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all"
                   >
-                    <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
+                    <X className="w-5 h-5 md:w-6 h-6" />
                   </button>
                 </div>
               </div>
 
-              {/* Modal Body (Content) - Scrollable */}
-              <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 group/modal-body">
+              {/* Modal Body (Content) - Scrollable Area */}
+              <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 pt-24 md:pt-32">
                 {selectedTemplate.video ? (
                   <video
                     src={selectedTemplate.video}
@@ -987,13 +983,13 @@ export const ShowcaseSection = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                 ) : (
                   <img
                     src={selectedTemplate.image}
                     alt={selectedTemplate.title}
-                    className="w-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                 )}
               </div>
