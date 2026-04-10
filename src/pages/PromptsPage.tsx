@@ -4,7 +4,13 @@ import { motion } from 'framer-motion';
 
 export const PromptsPage = () => {
   return (
-    <div className="pt-24 min-h-screen bg-black">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="pt-24 min-h-screen bg-black"
+    >
       <div className="px-6 py-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +43,7 @@ export const PromptsPage = () => {
       <ShowcaseSection hideHeader={true} />
       
       <div className="pb-24" />
-    </div>
+    </motion.div>
   );
 };
 
