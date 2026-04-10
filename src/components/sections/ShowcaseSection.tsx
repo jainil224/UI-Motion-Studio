@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { GalleryCard } from '../ui/GalleryCard';
-import { ArrowRight, Rocket, X, Copy } from 'lucide-react';
+import { ArrowRight, Rocket, X, Copy, Lock } from 'lucide-react';
 
 const templates = [
   {
@@ -573,7 +573,7 @@ export const ShowcaseSection = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedTemplate(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/85 backdrop-blur-xl"
             />
             
             <motion.div
@@ -581,20 +581,27 @@ export const ShowcaseSection = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-6xl aspect-video md:aspect-[16/10] bg-[#121212] rounded-[32px] border border-white/10 overflow-hidden shadow-2xl"
+              className="relative w-full max-w-6xl h-[85vh] bg-[#0c0c0c] rounded-[32px] border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col"
             >
               {/* Modal Header */}
-              <div className="absolute top-0 inset-x-0 z-20 p-6 flex items-center justify-between bg-gradient-to-b from-black/60 to-transparent">
-                <div className="flex flex-col">
-                  <h3 className="text-2xl font-bold text-white tracking-tight">
+              <div className="shrink-0 p-10 flex items-start justify-between bg-gradient-to-b from-black/90 via-black/40 to-transparent z-20">
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-4xl font-extrabold text-white tracking-tighter leading-none">
                     {selectedTemplate.title}
                   </h3>
-                  <p className="text-sm text-white/50 font-medium uppercase tracking-wider">
+                  <p className="text-[13px] text-white/40 font-bold uppercase tracking-[0.3em] leading-none">
                     {selectedTemplate.category}
                   </p>
                 </div>
                 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  {selectedTemplate.isPremium && (
+                    <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white/60 text-[11px] font-bold uppercase tracking-wider">
+                      <Lock className="w-3 h-3 text-yellow-500/80" />
+                      Premium
+                    </div>
+                  )}
+
                   {selectedTemplate.prompt && (
                     <button
                       onClick={(e) => {
@@ -618,17 +625,18 @@ export const ShowcaseSection = () => {
                       )}
                     </button>
                   )}
+                  
                   <button
                     onClick={() => setSelectedTemplate(null)}
-                    className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white hover:bg-white/20 transition-all"
+                    className="group p-2.5 rounded-full bg-black/40 backdrop-blur-xl border border-white/10 text-white/50 hover:text-white hover:bg-black/60 hover:border-white/20 transition-all"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
                   </button>
                 </div>
               </div>
 
-              {/* Modal Body (Content) */}
-              <div className="w-full h-full">
+              {/* Modal Body (Content) - Scrollable */}
+              <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 group/modal-body">
                 {selectedTemplate.video ? (
                   <video
                     src={selectedTemplate.video}
@@ -636,13 +644,13 @@ export const ShowcaseSection = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full object-cover"
                   />
                 ) : (
                   <img
                     src={selectedTemplate.image}
                     alt={selectedTemplate.title}
-                    className="w-full h-full object-cover"
+                    className="w-full object-cover"
                   />
                 )}
               </div>
