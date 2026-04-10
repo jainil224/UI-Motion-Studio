@@ -109,6 +109,131 @@ Create a production-grade, dark-themed Hero Section for a brand called "Synapse"
     isPremium: true,
   },
   {
+    title: 'Human',
+    category: 'Digital Art / Hero',
+    video: '/videos/Human.mp4',
+    prompt: `"Lumina" Hero Section
+Objective: Recreate a high-end, immersive hero section using React, Tailwind CSS, and Framer Motion.
+1. Visual Reference & Assets
+Video Background Link: https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/Glowing_abstract_human_202604101909_hknn8x.mp4
+Primary Fonts:
+Splash (Cursive/Script) - Used for the main artistic headline.
+Inter (Sans-serif) - Used for UI elements and body text.
+Color Palette:
+Background: #050505 (Deep Black)
+Accent 1: #f97316 (Orange-500)
+Accent 2: #60a5fa (Blue-400)
+Glass Effect: rgba(0, 0, 0, 0.2) with backdrop-blur-lg
+2. Technical Requirements
+Framework: React 18+
+Styling: Tailwind CSS 4.0
+Animations: Framer Motion (motion/react)
+Icons: Lucide-React
+3. Exact Code Implementation
+
+\`\`\`tsx
+import { motion } from "motion/react";
+import { Play, ArrowRight, Github, Twitter, Menu, X } from "lucide-react";
+import { useState } from "react";
+
+export default function HeroSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-orange-500/30 overflow-x-hidden">
+      {/* Video Background Layer */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <video
+          autoPlay loop muted playsInline
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] object-cover opacity-60 scale-110"
+        >
+          <source src="https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/Glowing_abstract_human_202604101909_hknn8x.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Glassmorphism Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur-lg">
+        <div className="flex items-center justify-between px-6 py-5 mx-auto max-w-7xl">
+          <div className="text-xl font-bold tracking-tighter flex items-center gap-2">
+            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+              <div className="w-4 h-4 bg-black rounded-full" />
+            </div>
+            LUMINA
+          </div>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
+            <a href="#" className="hover:text-white transition-colors">Experience</a>
+            <a href="#" className="hover:text-white transition-colors">Technology</a>
+            <a href="#" className="hover:text-white transition-colors">Art</a>
+            <a href="#" className="hover:text-white transition-colors">About</a>
+          </div>
+          <button className="px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all">
+            Get Started
+          </button>
+        </div>
+      </nav>
+
+      {/* Main Hero Content */}
+      <main className="relative z-10 flex flex-col items-center justify-center px-6 pt-24 pb-32 mx-auto max-w-7xl text-center min-h-[90vh]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-black/40 backdrop-blur-md text-[10px] uppercase tracking-[0.2em] font-bold text-orange-500 mb-12"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+          </span>
+          Future of Digital Art
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-6xl md:text-9xl font-bold tracking-tight leading-[0.8] mb-10 max-w-5xl"
+        >
+          <span className="font-['Splash'] text-white lowercase block mb-2">The Essence</span>
+          <span className="font-['Splash'] text-white lowercase block mb-6">Of</span>
+          <span className="font-['Splash'] text-orange-500 lowercase">Human</span>{" "}
+          <span className="font-['Splash'] text-blue-400 lowercase">Light</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-lg md:text-2xl text-white/70 max-w-3xl mb-16 leading-relaxed"
+        >
+          Experience the intersection of biological beauty and digital abstraction.
+        </motion.p>
+
+        <div className="flex flex-col sm:flex-row items-center gap-6">
+          <button className="px-10 py-5 bg-white text-black font-bold rounded-full hover:bg-orange-500 hover:text-white transition-all">
+            Explore Collection
+          </button>
+          <button className="px-10 py-5 bg-white/5 border border-white/20 backdrop-blur-md text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center gap-3">
+            <Play size={20} fill="currentColor" /> Watch Trailer
+          </button>
+        </div>
+      </main>
+    </div>
+  );
+}
+\`\`\`
+
+4. Critical CSS (index.css)
+
+\`\`\`css
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+@theme {
+  --font-splash: "Splash", cursive;
+}
+\`\`\`
+Instructions for the AI:
+"Use the provided React code and CSS to build a hero section. Ensure the video background is set to absolute with a lower z-index than the content. The Splash font must be applied to the h1 spans. The navigation must use backdrop-filter: blur(12px) for the glassy effect. Ensure all animations use the initial and animate props from Framer Motion for a smooth entrance."`,
+  },
+  {
     title: 'Liquid Glass Agency',
     category: 'AI Design / Agency',
     video: '/videos/Liquid Glass Agency.mp4',
