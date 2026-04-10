@@ -108,6 +108,134 @@ Create a production-grade, dark-themed Hero Section for a brand called "Synapse"
     isPremium: true,
   },
   {
+    title: 'Monochrome vision',
+    category: 'Fintech / SaaS',
+    video: '/videos/Screen Recording 2026-04-10 171754.mp4',
+    prompt: `UI Motion Studio
+
+AI Prompt: Premium Monochrome "MONO Financial Vision" Hero Section with Cinematic Motion
+
+Objective: Create a high-end, production-grade Hero Section for a fintech/SaaS brand called "MONO Financial Vision" using React, Tailwind CSS, and Framer Motion (motion/react). The design must feel luxurious, minimal, cinematic, and modern with smooth, subtle animations and strong typography hierarchy.
+
+1. Core Aesthetic & Visual Identity:
+
+* Style: Premium Monochrome, Minimalist, High-End Fintech/SaaS
+* Color Palette:
+  * Pure Black (#000000)
+  * Pure White (#FFFFFF)
+  * Subtle grays and transparencies (white/10, white/60)
+* Mood: Sophisticated, authoritative, cinematic, modern
+* Background:
+  * Full-screen immersive abstract video
+  * Source: https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/Monochrome_abstract_kukf5z.mp4
+  * Visual: Slow-moving, fluid, smoke/silk-like grayscale textures
+* Overlay Layers:
+  * Black overlay (bg-black/40) for readability
+  * Vertical gradient (black \u2192 transparent)
+  * Radial gradient vignette focusing center
+
+2. Typography System (Critical):
+
+* Primary Display Font: Anton (Google Fonts)
+  * Heavy, condensed, uppercase
+  * Tight letter-spacing
+  * Used for: "ELEVATE YOUR"
+* Signature Script Font: Condiment (Google Fonts)
+  * Elegant, fluid, lowercase script
+  * Slight overlap on primary headline
+  * Used for: "financial vision"
+* Body/UI Font: Inter (Google Fonts)
+  * Clean, geometric sans-serif
+  * Used for navigation, paragraph text, buttons
+
+3. Layout Structure:
+
+Navigation Bar:
+* Fixed at top, transparent initially
+* Applies backdrop blur on scroll
+* Left: Minimal geometric logo (diamond inside square)
+* Center: Navigation links (Home, Product, Pricing, Contact)
+* Right: "Sign Up" pill button (white background, black text)
+
+Hero Section (Center-Aligned):
+* Badge:
+  * Pill-shaped container
+  * Text: "NEW FEATURES AVAILABLE"
+  * Includes small pulsing dot indicator
+  * Subtle glassmorphic background (white/10 + blur)
+
+* Headline (Main Focus):
+  * Two-layer typography:
+    * Top Layer: "ELEVATE YOUR" (Anton, bold, large)
+    * Bottom Overlay: "financial vision" (Condiment, overlapping slightly)
+  * Perfect visual balance and alignment
+
+* Description:
+  * Centered paragraph
+  * Max-width for readability
+  * Color: text-white/60
+  * High line-height for elegance
+
+* CTA Buttons:
+  * Primary Button: "Explore"
+    * Solid white background
+    * Black text
+    * Rounded-full
+  * Secondary Button: "Book Demo"
+    * Glassmorphic (white/10 background + backdrop blur)
+    * White border (low opacity)
+
+* Trusted By Section:
+  * Grid of company logos
+  * Grayscale (opacity 40%)
+  * Positioned below CTA
+  * Smooth hover interaction
+
+4. Animation & Interaction Logic:
+
+Entrance Animations (Framer Motion):
+* Badge:
+  * Initial: Y: 20, opacity: 0
+  * Animate: Y: 0, opacity: 1
+* Headline:
+  * Slight delay
+  * Scale + fade-in ("slam" effect but smooth)
+* Description:
+  * Fade-in with delay after headline
+* Buttons:
+  * Sequential fade + slight upward motion
+
+Background Motion:
+* Video plays automatically, looped, muted
+* Very slow and smooth motion (no abrupt changes)
+
+Hover Effects:
+* Buttons:
+  * Scale: 1.02
+  * Soft white glow/shadow
+* Navigation Links:
+  * Center-out underline animation
+* Logos:
+  * TranslateY: -5px
+  * Scale: 1.1
+  * Remove grayscale (full color reveal)
+
+5. Technical Requirements:
+* Use React functional components
+* Styling with Tailwind CSS
+* Animations with Framer Motion (motion/react)
+* Fully responsive design
+* Optimize video performance (lazy loading, object-cover)
+* Maintain accessibility (contrast, semantic HTML)
+
+Final Output Expectation:
+* Clean, modular React component structure
+* Pixel-perfect layout
+* Smooth, premium-level animations
+* Minimal but powerful UI with strong brand identity`,
+    isPremium: true,
+  },
+  {
     title: 'Space Voyage',
     category: 'Landing Page',
     image: '/templates/space-voyage.png',
