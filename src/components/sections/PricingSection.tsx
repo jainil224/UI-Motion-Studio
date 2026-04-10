@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GlassCard } from '../ui/GlassCard';
 import { Check } from 'lucide-react';
 
 export const PricingSection = () => {
@@ -25,8 +24,9 @@ export const PricingSection = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="group rounded-[20px] transition-all duration-300 bg-[linear-gradient(163deg,#00ff75_0%,#3700ff_100%)] hover:shadow-[0px_0px_30px_1px_rgba(0,255,117,0.30)] flex flex-col"
           >
-            <GlassCard className="h-full flex flex-col p-8">
+            <div className="flex-1 flex flex-col p-8 bg-[#1a1a1a] rounded-[20px] transition-all duration-200 group-hover:scale-[0.98] w-full h-full relative z-10">
               <h3 className="text-2xl font-semibold mb-2">Free</h3>
               <p className="text-sm text-white/50 mb-6">Perfect to get a taste of motion.</p>
               <div className="text-4xl font-bold mb-8">$0<span className="text-lg text-white/50 font-normal">/mo</span></div>
@@ -43,7 +43,7 @@ export const PricingSection = () => {
               <button className="w-full py-4 rounded-xl bg-white/5 text-white font-medium hover:bg-white/10 transition-colors border border-white/10">
                 Get Started
               </button>
-            </GlassCard>
+            </div>
           </motion.div>
 
           {/* Pro Plan */}
@@ -52,9 +52,10 @@ export const PricingSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="group rounded-[20px] transition-all duration-300 bg-[linear-gradient(163deg,#00ff75_0%,#3700ff_100%)] hover:shadow-[0px_0px_30px_1px_rgba(0,255,117,0.30)] flex flex-col"
           >
-            <GlassCard glow className="h-full flex flex-col p-8">
-              <div className="absolute top-0 right-0 py-1 px-4 bg-gradient-to-r from-primary to-accent text-[10px] font-bold uppercase tracking-widest rounded-bl-xl rounded-tr-xl">
+            <div className="flex-1 flex flex-col p-8 bg-[#1a1a1a] rounded-[20px] transition-all duration-200 group-hover:scale-[0.98] w-full h-full relative z-10 overflow-hidden">
+              <div className="absolute top-0 right-0 py-1 px-4 bg-gradient-to-r from-primary to-accent text-[10px] font-bold uppercase tracking-widest rounded-bl-xl rounded-tr-[20px]">
                 Most Popular
               </div>
               <h3 className="text-2xl font-semibold mb-2">Pro</h3>
@@ -73,10 +74,11 @@ export const PricingSection = () => {
               <button className="w-full py-4 rounded-xl bg-white text-black font-semibold hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-shadow">
                 Upgrade Now
               </button>
-            </GlassCard>
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
   );
 };
+
