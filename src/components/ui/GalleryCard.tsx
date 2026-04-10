@@ -53,13 +53,13 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
             loop
             muted
             playsInline
-            className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 scale-110 group-hover:scale-125 transition-all duration-700 ease-out"
+            className="w-full h-full object-cover transition-all duration-700 ease-out"
           />
         ) : (
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 ease-out"
+            className="w-full h-full object-cover transition-all duration-700 ease-out"
           />
         )}
 
