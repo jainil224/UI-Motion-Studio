@@ -3,6 +3,7 @@ import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { GalleryCard } from '../ui/GalleryCard';
 import { ArrowRight, Rocket, X, Copy, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { GradientText } from '../ui/GradientText';
 
 const templates = [
   {
@@ -936,25 +937,11 @@ export const ShowcaseSection = () => {
             className="text-6xl md:text-[90px] font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase"
           >
             Unlock Your AI <br />
-            <span className="relative inline-block mt-4 pb-2">
-              <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
-                Design
-              </span>{" "}
-              <span className="relative z-10 text-primary">
+            <span className="relative inline-block mt-4">
+              Design{" "}
+              <GradientText animate className="drop-shadow-[0_0_20px_rgba(124,58,237,0.3)]">
                 Superpowers
-                <motion.span 
-                  className="absolute inset-0 blur-3xl bg-primary/30 -z-10 rounded-full"
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.6, 0.3]
-                  }}
-                  transition={{ 
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-              </span>
+              </GradientText>
             </span>
           </motion.h2>
 
