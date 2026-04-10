@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { GalleryCard } from '../ui/GalleryCard';
 import { ArrowRight, Rocket, X, Copy, Lock } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const templates = [
   {
@@ -938,13 +939,6 @@ export const ShowcaseSection = () => {
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  {selectedTemplate.isPremium && (
-                    <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/60 text-[10px] font-bold uppercase tracking-wider">
-                      <Lock className="w-3 h-3 text-yellow-500/80" />
-                      Premium
-                    </div>
-                  )}
-
                   {selectedTemplate.prompt && (
                     <button
                       onClick={(e) => {
