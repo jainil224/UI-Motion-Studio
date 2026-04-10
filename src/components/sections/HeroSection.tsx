@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GradientText } from '../ui/GradientText';
+import { FlipText } from '../ui/flip-text';
 import { ArrowRight } from 'lucide-react';
 
 export const HeroSection = () => {
@@ -34,17 +34,17 @@ export const HeroSection = () => {
         </motion.div>
 
         {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl md:text-[56px] leading-[1.1] font-bold text-white mb-6 max-w-[650px]"
-        >
-          Unlock Your Motion Design{" "}
-          <GradientText animate className="drop-shadow-[0_0_15px_rgba(124,58,237,0.3)]">
+        <h1 className="text-4xl md:text-[56px] leading-[1.1] font-bold text-white mb-6 max-w-[800px] text-center">
+          <FlipText duration={0.8} className="text-white">
+            {"Unlock Your Motion Design "}
+          </FlipText>
+          <FlipText 
+            duration={0.8} 
+            className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient drop-shadow-[0_0_15px_rgba(124,58,237,0.3)] leading-normal"
+          >
             Superpowers
-          </GradientText>
-        </motion.h1>
+          </FlipText>
+        </h1>
 
         {/* Subtitle */}
         <motion.p

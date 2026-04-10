@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GlassCard } from '../ui/GlassCard';
 import { FileCode2, LayoutTemplate, Sparkles, Zap } from 'lucide-react';
+import { EnvelopeCard } from '../ui/EnvelopeCard';
 
 const features = [
   {
@@ -63,24 +63,26 @@ export const FeaturesSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full relative z-10">
-          {features.map((feature, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.6 }}
-            >
-              <GlassCard className="h-full group hover:bg-white/[0.05] transition-colors duration-500">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 flex items-center justify-center mb-6 shadow-inner relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">{feature.description}</p>
-              </GlassCard>
-            </motion.div>
-          ))}
+          {features.map((feature, idx) => {
+            // Give different standard rotations to match the original css flair
+            const hues = ['0deg', '300deg', '200deg', '60deg'];
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+              >
+                <EnvelopeCard 
+                  title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                  hueRotate={hues[idx]}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
