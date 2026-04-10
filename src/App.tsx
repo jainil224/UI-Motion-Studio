@@ -6,6 +6,7 @@ import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { IntegrationSection } from '@/components/sections/IntegrationSection'
 import { PricingSection } from '@/components/sections/PricingSection'
 import { Footer } from '@/components/sections/Footer'
+import AsciiWave from '@/components/lightswind/ascii-wave'
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
         <FeaturesSection />
         <IntegrationSection />
         <PricingSection />
+        
+        {/* Decorative Ascii Wave Section */}
+        <section className="w-full h-[30vh] md:h-[40vh] relative overflow-hidden border-t border-white/5 opacity-80">
+          <AsciiWave speed={1.5} color="#FFFFFF" />
+        </section>
       </main>
       <Footer />
     </div>
