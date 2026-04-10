@@ -11,7 +11,6 @@ export const HomePage = () => {
   return (
     <>
       <HeroSection />
-      <ShowcaseSection />
       <UILayoutSection />
       <FeaturesSection />
       <IntegrationSection />

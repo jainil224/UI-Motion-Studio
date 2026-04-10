@@ -32,10 +32,13 @@ export const Navbar = () => {
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
-            <Link to="/prompts" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all">
+            <Link to="/" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
+              Home
+            </Link>
+            <Link to="/prompts" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
               Prompts
             </Link>
-            <a href="https://ui-hub-design.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all">
+            <a href="https://ui-hub-design.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
               UI HUB
             </a>
           </div>

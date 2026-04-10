@@ -34,7 +34,7 @@ export const PromptsPage = () => {
       </div>
       
       {/* Reusing the ShowcaseSection which now has the detailed Image Reference modal */}
-      <ShowcaseSection />
+      <ShowcaseSection hideHeader={true} />
       
       <div className="pb-24" />
     </div>

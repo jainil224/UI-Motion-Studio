@@ -885,7 +885,7 @@ Final Output Expectation:
   },
 ];
 
-export const ShowcaseSection = () => {
+export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }) => {
   const [selectedTemplate, setSelectedTemplate] = useState<any>(null);
   const [showCopied, setShowCopied] = useState(false);
   const containerVariants: Variants = {
@@ -914,54 +914,56 @@ export const ShowcaseSection = () => {
     <section id="templates" className="py-32 px-6 relative bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* Gallery Header */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-col items-center text-center mb-24"
-        >
-          <motion.div
-            variants={itemVariants}
-            className="flex items-center gap-2 mb-8 bg-white/5 py-2 px-4 rounded-full border border-white/10 backdrop-blur-sm"
+        {!hideHeader && (
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="flex flex-col items-center text-center mb-24"
           >
-            <span className="text-white/40 text-[13px] font-medium tracking-wide uppercase">Powered by</span>
-            <div className="flex items-center gap-1.5">
-              <Rocket className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-white font-bold tracking-tighter text-sm uppercase italic">Design Rocket</span>
-            </div>
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2 mb-8 bg-white/5 py-2 px-4 rounded-full border border-white/10 backdrop-blur-sm"
+            >
+              <span className="text-white/40 text-[13px] font-medium tracking-wide uppercase">Powered by</span>
+              <div className="flex items-center gap-1.5">
+                <Rocket className="w-4 h-4 text-primary animate-pulse" />
+                <span className="text-white font-bold tracking-tighter text-sm uppercase italic">Design Rocket</span>
+              </div>
+            </motion.div>
+
+            <motion.h2
+              variants={itemVariants}
+              className="text-6xl md:text-[90px] font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase"
+            >
+              Unlock Your AI <br />
+              <span className="relative inline-block mt-4">
+                Design{" "}
+                <GradientText animate className="drop-shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                  Superpowers
+                </GradientText>
+              </span>
+            </motion.h2>
+
+            <motion.p
+              variants={itemVariants}
+              className="text-white/50 max-w-xl text-lg md:text-xl mb-12 leading-relaxed font-medium"
+            >
+              Build beautiful landing pages in minutes with our ready-to-use prompt library. Just copy, paste, and launch.
+            </motion.p>
+
+            <motion.button
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group px-10 py-5 rounded-full bg-white text-black font-bold text-lg flex items-center gap-3 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all"
+            >
+              Go Unlimited
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+            </motion.button>
           </motion.div>
-
-          <motion.h2
-            variants={itemVariants}
-            className="text-6xl md:text-[90px] font-black text-white leading-[0.9] mb-10 tracking-tighter uppercase"
-          >
-            Unlock Your AI <br />
-            <span className="relative inline-block mt-4">
-              Design{" "}
-              <GradientText animate className="drop-shadow-[0_0_20px_rgba(124,58,237,0.3)]">
-                Superpowers
-              </GradientText>
-            </span>
-          </motion.h2>
-
-          <motion.p
-            variants={itemVariants}
-            className="text-white/50 max-w-xl text-lg md:text-xl mb-12 leading-relaxed font-medium"
-          >
-            Build beautiful landing pages in minutes with our ready-to-use prompt library. Just copy, paste, and launch.
-          </motion.p>
-
-          <motion.button
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group px-10 py-5 rounded-full bg-white text-black font-bold text-lg flex items-center gap-3 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all"
-          >
-            Go Unlimited
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
-          </motion.button>
-        </motion.div>
+        )}
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
