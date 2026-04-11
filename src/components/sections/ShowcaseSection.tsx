@@ -1012,25 +1012,33 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  {selectedTemplate.prompt && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        navigator.clipboard.writeText(selectedTemplate.prompt);
-                        setShowCopied(true);
-                        setTimeout(() => setShowCopied(false), 2000);
-                      }}
-                      className={cn(
-                        "flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border text-xs md:text-sm font-semibold tracking-wide transition-all active:scale-95",
-                        showCopied 
-                          ? "bg-green-500/20 border-green-500/50 text-green-400" 
-                          : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/20"
-                      )}
-                    >
-                      <Copy className="w-4 h-4" />
-                      {showCopied ? "Copied!" : "Copy Prompt"}
-                    </button>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {selectedTemplate.prompt && (
+                      <motion.button
+                        key={showCopied ? "copied" : "copy"}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.9 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigator.clipboard.writeText(selectedTemplate.prompt);
+                          setShowCopied(true);
+                          setTimeout(() => setShowCopied(false), 2000);
+                        }}
+                        className={cn(
+                          "flex items-center gap-2 px-5 py-2 rounded-full backdrop-blur-md border text-xs md:text-sm font-semibold tracking-wide transition-all",
+                          showCopied 
+                            ? "bg-green-500/20 border-green-500/50 text-green-400" 
+                            : "bg-white/5 border-white/10 text-white/80 hover:bg-white/10 hover:border-white/20"
+                        )}
+                      >
+                        <Copy className="w-4 h-4" />
+                        {showCopied ? "Copied!" : "Copy Prompt"}
+                      </motion.button>
+                    )}
+                  </AnimatePresence>
                   
                   <button
                     onClick={() => setSelectedTemplate(null)}
@@ -1060,29 +1068,8 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                   />
                 )}
                 
-                {/* Visual Overlay - Top Left Info (Adjusted for full width) */}
-                <div className="absolute top-[100px] left-8 z-20 flex flex-col gap-4">
-                  <div className="px-5 py-2 bg-primary/10 backdrop-blur-xl border border-primary/30 rounded-full w-fit">
-                    <span className="text-[11px] font-black text-primary uppercase tracking-[0.25em]">Premium Framework</span>
-                  </div>
-                  
-                  <div className="px-5 py-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full w-fit">
-                    <span className="text-[11px] font-bold text-white uppercase tracking-[0.25em]">4K Motion Seed</span>
-                  </div>
-                </div>
-
                 {/* Bottom Gradient Fade */}
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
-                
-                {/* Tech Stack Indicator (Floating Bottom Right) */}
-                <div className="absolute bottom-8 right-8 z-20 flex items-center gap-3 bg-black/40 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-2xl">
-                  <div className="flex -space-x-2">
-                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] font-bold">R</div>
-                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] font-bold">F</div>
-                    <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] font-bold">T</div>
-                  </div>
-                  <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Active Stack</span>
-                </div>
               </div>
             </motion.div>
           </div>
