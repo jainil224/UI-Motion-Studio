@@ -862,9 +862,7 @@ Final Output Expectation:
     image: '/templates/liquid-glass.png',
     isPremium: false,
   },
-  {
-    type: 'cta',
-  },
+
   {
     title: 'Orbis NFT',
     category: 'Landing Page',
@@ -968,45 +966,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
           {templates.map((item, idx) => (
-            item.type === 'cta' ? (
-              <motion.div
-                key="cta-card"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="col-span-1"
-              >
-                <div className="h-full min-h-[440px] flex flex-col justify-between p-10 rounded-3xl bg-gradient-to-br from-white/[0.08] to-transparent border border-white/10 relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 p-10">
-                    <Rocket className="w-10 h-10 text-primary opacity-20 group-hover:opacity-100 group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" />
-                  </div>
-                  
-                  <div className="space-y-8 pt-8">
-                    <div className="flex items-center gap-2">
-                      <Rocket className="w-5 h-5 text-primary" />
-                      <span className="text-white font-bold tracking-tighter text-lg uppercase italic">Design Rocket</span>
-                    </div>
-                    
-                    <h3 className="text-4xl font-bold text-white leading-[1.1] tracking-tight">
-                      Master AI-powered Websites design
-                    </h3>
-                  </div>
 
-                  <div className="space-y-6">
-                    <p className="text-white/40 font-medium">
-                      Join 10k+ designers
-                    </p>
-                    <button className="w-full py-5 rounded-2xl bg-white text-black font-bold hover:bg-white/90 hover:shadow-xl transition-all transform active:scale-95">
-                      Start Learning for Free
-                    </button>
-                  </div>
-                  
-                  {/* Decorative Glow */}
-                  <div className="absolute bottom-0 right-0 w-48 h-48 bg-primary/10 blur-[80px] rounded-full -mr-24 -mb-24" />
-                </div>
-              </motion.div>
-            ) : (
               <GalleryCard
                 key={idx}
                 title={item.title!}
@@ -1017,7 +977,6 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                 isPremium={item.isPremium}
                 onClick={() => setSelectedTemplate(item)}
               />
-            )
           ))}
         </div>
       </div>
