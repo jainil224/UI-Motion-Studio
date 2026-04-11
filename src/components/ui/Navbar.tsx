@@ -21,7 +21,7 @@ export const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={cn(
-          "pointer-events-auto transition-all duration-500 w-full max-w-5xl mx-4 mt-6 py-3 px-6 rounded-[2rem] glass-nav"
+          "pointer-events-auto transition-all duration-500 w-full max-w-5xl mx-2 sm:mx-4 mt-4 sm:mt-6 py-2.5 sm:py-3 px-4 sm:px-6 rounded-[2rem] glass-nav"
         )}
       >
         <div className="flex items-center justify-between w-full">

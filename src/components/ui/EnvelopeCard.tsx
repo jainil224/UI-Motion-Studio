@@ -12,9 +12,10 @@ export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: Envelop
       <style>{`
         .env-card {
           position: relative;
-          height: 300px;
-          var(--hue): 0deg;
-          width: 230px;
+          --card-w: min(280px, 85vw);
+          --card-h: 300px;
+          height: var(--card-h);
+          width: var(--card-w);
           margin: 0 auto;
         }
         .env-card .boxshadow {
@@ -44,9 +45,9 @@ export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: Envelop
           width: 0px;
           height: 0px;
           z-index: 2;
-          border-top: 115px solid #000000;
-          border-left: 115px solid transparent;
-          border-right: 115px solid transparent;
+          border-top: calc(var(--card-w) / 2) solid #000000;
+          border-left: calc(var(--card-w) / 2) solid transparent;
+          border-right: calc(var(--card-w) / 2) solid transparent;
           transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         }
         .env-card .main .side {
@@ -100,9 +101,9 @@ export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: Envelop
         .env-card:hover .main {
           transform: scale(1.05);
         }
-        .env-card:hover .main .top { top: -115px; }
-        .env-card:hover .main .left { left: -115px; transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s; }
-        .env-card:hover .main .right { right: -115px; transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s; }
+        .env-card:hover .main .top { top: calc(var(--card-w) / -2); }
+        .env-card:hover .main .left { left: calc(var(--card-w) / -2); transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s; }
+        .env-card:hover .main .right { right: calc(var(--card-w) / -2); transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0s; }
         .env-card:hover .main .cover-title { opacity: 0; }
         .env-card:hover .main .inner-content {
           opacity: 1;

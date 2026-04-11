@@ -24,7 +24,7 @@ export const UILayoutSection = () => {
         </div>
         
         {/* Content Container - Adjusted to be 'after' the circle curve */}
-        <div className='relative z-10 flex flex-col items-center pt-[420px] pb-24'>
+        <div className='relative z-10 flex flex-col items-center pt-[320px] sm:pt-[420px] pb-24'>
           {/* Text Content */}
           <article className='text-white w-11/12 max-w-4xl mx-auto block text-center'>
             <motion.div
@@ -33,7 +33,7 @@ export const UILayoutSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className='text-center text-6xl md:text-8xl font-black mb-8 tracking-tighter uppercase'>
+              <h1 className='text-center text-4xl sm:text-6xl md:text-8xl font-black mb-8 tracking-tighter uppercase'>
                 UI-<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">LAYOUT</span>
               </h1>
             </motion.div>

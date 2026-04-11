@@ -23,7 +23,7 @@ export const HeroSection = () => {
       <div className="relative z-20 flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto pt-24 mt-12 md:mt-24 pb-[100px]">
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-[56px] leading-[1.1] font-bold text-white mb-6 max-w-[800px] text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-[56px] leading-[1.15] font-bold text-white mb-6 max-w-[800px] text-center">
           <FlipText duration={0.8} className="text-white">
             {"Unlock Your Motion Design "}
           </FlipText>
@@ -59,7 +59,7 @@ export const HeroSection = () => {
           </button>
           
           {/* Secondary CTA */}
-          <button className="h-12 px-8 bg-transparent border border-white/20 text-white rounded-full font-medium hover:bg-white/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.2)] transition-all duration-300 w-full sm:w-auto justify-center">
+          <button className="h-12 px-8 bg-transparent border border-white/20 text-white rounded-full font-medium hover:bg-white/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.2)] transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
             Go Unlimited
           </button>
         </motion.div>

@@ -28,7 +28,7 @@ export const FlipText = ({
   return (
     <motion.div 
       {...props} 
-      className={cn("inline-flex space-x-[0.05em]", className)}
+      className={cn("flex flex-wrap items-center justify-center", className)}
     >
       {text.split("").map((char, i) => (
         <motion.span
