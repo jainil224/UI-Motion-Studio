@@ -44,7 +44,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
       onClick={onClick}
       className={cn("group flex flex-col gap-4 cursor-pointer", className)}
     >
-      <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 bg-white/5">
+      <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 bg-black">
         {/* Main Content (Image or Video) */}
         {video ? (
           <video
@@ -53,7 +53,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
             loop
             muted
             playsInline
-            className="w-full h-full object-cover transition-all duration-700 ease-out"
+            className="w-full h-full object-contain transition-all duration-700 ease-out"
           />
         ) : (
           <img

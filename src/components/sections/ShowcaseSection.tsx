@@ -110,6 +110,135 @@ Create a production-grade, dark-themed Hero Section for a brand called "Synapse"
     isPremium: true,
   },
   {
+    title: 'Person woking',
+    category: 'AI Design / Remote Work',
+    video: '/videos/upscaled-video.mp4',
+    prompt: `AI Prompt: Build a single-page HERO landing page for an AI-powered web design / remote work platform using:
+
+React + Vite + TypeScript + Tailwind CSS + shadcn/ui
+
+DESIGN STYLE
+
+Dark, premium, Apple-inspired aesthetic
+Pure black background throughout (#000000)
+Use a custom “Apple-level liquid glass” morphism effect for the navbar
+Minimal, cinematic, high-end look
+Smooth spacing and modern typography
+Use stylish, cool modern fonts (e.g., pairing of a display font + clean sans-serif)
+
+BACKGROUND VIDEO
+
+Use the provided video URL as a full-screen background:
+
+https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=Person_sitting_on_202603291050_hbwxjl
+
+Video should autoplay, loop, muted, and cover the entire hero section
+Add a subtle dark overlay for text readability
+
+NAVBAR (Top, Fixed)
+
+Floating liquid-glass style navbar
+Centered horizontally near the top
+Rounded pill shape
+Apply the provided Apple-level liquid glass CSS
+
+Navbar contents:
+
+Left: Minimal star-style logo icon
+
+Center navigation links:
+• Home
+• Explore
+• Jobs
+
+Text color: white
+Clean spacing between items
+No visible hard borders
+
+HERO TEXT (Bottom-Left)
+
+Position the main content in the bottom-left corner of the screen.
+
+Primary Heading:
+Text: "Work Anywhere. Live Fully"
+Color: #EAC299
+Large display size
+Bold, elegant, premium feel
+Left-aligned
+
+Subheading (below main text):
+Text: "Connect with companies worldwide and build your career from wherever you call home."
+Color: near-white (e.g., rgba(255,255,255,0.85))
+Smaller body size
+Left-aligned
+Comfortable line length for readability
+
+LAYOUT REQUIREMENTS
+
+Full viewport height hero section (100vh)
+Content should not feel cramped
+Maintain strong visual hierarchy
+Ensure text remains readable over video
+No additional sections — hero only
+
+LIQUID GLASS CSS
+
+/* ===== Apple-Level Liquid Glass (Dark UI) ===== */
+
+.liquid-glass-ios {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  background-clip: padding-box;
+}
+
+.liquid-glass-ios::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.22) 18%,
+    rgba(255,255,255,0.08) 36%,
+    rgba(255,255,255,0.02) 55%,
+    rgba(255,255,255,0) 70%
+  );
+}
+
+.liquid-glass-ios::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  pointer-events: none;
+  background: linear-gradient(
+    140deg,
+    rgba(255,255,255,0.65),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.65)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}`,
+    isPremium: true,
+  },
+  {
     title: 'Human',
     category: 'Digital Art / Hero',
     video: '/videos/Human.mp4',
@@ -1058,13 +1187,13 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 ) : (
                   <img
                     src={selectedTemplate.image}
                     alt={selectedTemplate.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 )}
                 
