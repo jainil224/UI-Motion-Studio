@@ -62,7 +62,6 @@ export const FeaturesSection = () => {
                 <EnvelopeCard 
                   title={feature.title}
                   description={feature.description}
-                  icon={feature.icon}
                 />
               </motion.div>
             );

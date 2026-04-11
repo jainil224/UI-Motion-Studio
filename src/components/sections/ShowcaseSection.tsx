@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { GalleryCard } from '../ui/GalleryCard';
-import { ArrowRight, Rocket, X, Copy, Lock } from 'lucide-react';
+import { ArrowRight, Rocket, X, Copy, Lock, Terminal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { GradientText } from '../ui/GradientText';
 
