@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FlipText } from '../ui/flip-text';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const HeroSection = () => {
   return (
@@ -53,10 +54,13 @@ export const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center"
         >
           {/* Primary CTA */}
-          <button className="h-12 px-8 bg-white text-black rounded-full font-semibold hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300 flex items-center gap-2 group w-full sm:w-auto justify-center">
+          <Link 
+            to="/prompts"
+            className="h-12 px-8 bg-white text-black rounded-full font-semibold hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300 flex items-center gap-2 group w-full sm:w-auto justify-center"
+          >
             Explore Templates
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
           
           {/* Secondary CTA */}
           <button className="h-12 px-8 bg-transparent border border-white/20 text-white rounded-full font-medium hover:bg-white/10 hover:border-primary/50 hover:shadow-[0_0_20px_rgba(124,58,237,0.2)] transition-all duration-300 w-full sm:w-auto flex items-center justify-center">
