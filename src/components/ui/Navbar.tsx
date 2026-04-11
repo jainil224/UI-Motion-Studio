@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +16,12 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Prompts', path: '/prompts' },
+    { name: 'UI HUB', path: 'https://ui-hub-design.vercel.app/', external: true },
+  ];
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none w-full">
       <motion.nav
@@ -21,37 +29,100 @@ export const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={cn(
-          "pointer-events-auto transition-all duration-500 w-full max-w-5xl mx-2 sm:mx-4 mt-4 sm:mt-6 py-2.5 sm:py-3 px-4 sm:px-6 rounded-[2rem] glass-nav"
+          "pointer-events-auto transition-all duration-500 w-full max-w-5xl mx-2 sm:mx-4 mt-4 sm:mt-6 glass-nav overflow-hidden",
+          isOpen ? "rounded-[1.5rem]" : "rounded-[2rem]"
         )}
       >
-        <div className="flex items-center justify-between w-full">
-          <Link to="/" className="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2 shrink-0">
-            <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-tr from-primary to-accent shrink-0" />
-            <span className="truncate max-w-[120px] sm:max-w-none">UI Motion</span>
-            <span className="hidden sm:inline">Studio</span>
-          </Link>
+        <div className="py-2.5 sm:py-3 px-4 sm:px-6">
+          <div className="flex items-center justify-between w-full">
+            <div className="flex items-center gap-4">
+              <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden p-1.5 text-white/70 hover:text-white transition-colors"
+              >
+                {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
 
-          <div className="hidden lg:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
-              Home
-            </Link>
-            <Link to="/prompts" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
-              Prompts
-            </Link>
-            <a href="https://ui-hub-design.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider">
-              UI HUB
-            </a>
+              <Link to="/" className="text-lg md:text-xl font-bold tracking-tight text-white flex items-center gap-2 shrink-0">
+                <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-gradient-to-tr from-primary to-accent shrink-0" />
+                <span className="truncate max-w-[120px] sm:max-w-none">UI Motion</span>
+                <span className="hidden sm:inline">Studio</span>
+              </Link>
+            </div>
+
+            <div className="hidden lg:flex items-center gap-8">
+              {navLinks.map((link) => (
+                link.external ? (
+                  <a 
+                    key={link.name}
+                    href={link.path} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link 
+                    key={link.name}
+                    to={link.path} 
+                    className="text-sm font-medium text-white/80 hover:text-white hover:text-shadow-glow transition-all uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              ))}
+            </div>
+
+            <button className="relative px-4 py-1.5 md:px-6 md:py-2 rounded-full overflow-hidden group shrink-0 ml-2">
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/50 to-accent/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="absolute inset-[1px] bg-black rounded-full" />
+              <span className="relative text-xs md:text-sm font-medium text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-all z-10">
+                <span className="hidden sm:inline">Get Unlimited </span>Access
+              </span>
+              <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
+            </button>
           </div>
-
-          <button className="relative px-4 py-1.5 md:px-6 md:py-2 rounded-full overflow-hidden group shrink-0 ml-2">
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/50 to-accent/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="absolute inset-[1px] bg-black rounded-full" />
-            <span className="relative text-xs md:text-sm font-medium text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-all z-10">
-              <span className="hidden sm:inline">Get Unlimited </span>Access
-            </span>
-            <span className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-50" />
-          </button>
         </div>
+
+        {/* Mobile Menu Content */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="lg:hidden border-t border-white/10 bg-white/[0.02]"
+            >
+              <div className="flex flex-col p-4 gap-4">
+                {navLinks.map((link) => (
+                  link.external ? (
+                    <a 
+                      key={link.name}
+                      href={link.path} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-base font-medium text-white/70 hover:text-white px-2 py-1 transition-all"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link 
+                      key={link.name}
+                      to={link.path} 
+                      className="text-base font-medium text-white/70 hover:text-white px-2 py-1 transition-all"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </div>
   );
