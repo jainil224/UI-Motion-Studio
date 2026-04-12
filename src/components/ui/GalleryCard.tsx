@@ -53,7 +53,10 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
             loop
             muted
             playsInline
-            className="w-full h-full object-contain transition-all duration-700 ease-out"
+            className={cn(
+              "w-full h-full transition-all duration-700 ease-out",
+              title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+            )}
           />
         ) : (
           <img

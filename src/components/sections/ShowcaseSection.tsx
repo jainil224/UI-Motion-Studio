@@ -9,7 +9,7 @@ const templates = [
   {
     title: 'Synapse Hero',
     category: 'SaaS / Tech',
-    video: '/videos/ui motion .mp4',
+    video: '/videos/synapse.mp4',
     prompt: `AI Prompt: High-Fidelity "Synapse" Hero Section with Immersive Video
 
 Objective:
@@ -854,7 +854,7 @@ Implement as: <video autoPlay loop muted playsInline className="absolute inset-0
   {
     title: 'Monochrome vision',
     category: 'Fintech / SaaS',
-    video: '/videos/Screen Recording 2026-04-10 171754.mp4',
+    video: '/videos/monochrome.mp4',
     prompt: `UI Motion Studio
 
 AI Prompt: Premium Monochrome "MONO Financial Vision" Hero Section with Cinematic Motion
@@ -1187,13 +1187,19 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-contain"
+                    className={cn(
+                      "w-full h-full",
+                      selectedTemplate.title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+                    )}
                   />
                 ) : (
                   <img
                     src={selectedTemplate.image}
                     alt={selectedTemplate.title}
-                    className="w-full h-full object-contain"
+                    className={cn(
+                      "w-full h-full",
+                      selectedTemplate.title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+                    )}
                   />
                 )}
                 
