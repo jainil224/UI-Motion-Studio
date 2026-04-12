@@ -1127,7 +1127,10 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-5xl h-[85vh] bg-[#0c0c0c] rounded-3xl border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col"
+              className={cn(
+                "relative w-full h-[85vh] bg-[#0c0c0c] rounded-3xl border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] flex flex-col transition-all duration-500",
+                selectedTemplate.title === 'Innovation' ? "max-w-xl" : "max-w-5xl"
+              )}
             >
               {/* Modal Header - Pinned Top */}
               <div className="absolute top-0 inset-x-0 z-30 p-5 md:p-8 flex items-center justify-between bg-black/40 backdrop-blur-xl border-b border-white/5">
@@ -1189,7 +1192,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     playsInline
                     className={cn(
                       "w-full h-full",
-                      selectedTemplate.title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation') ? "object-cover" : "object-contain"
                     )}
                   />
                 ) : (
@@ -1198,7 +1201,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     alt={selectedTemplate.title}
                     className={cn(
                       "w-full h-full",
-                      selectedTemplate.title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation') ? "object-cover" : "object-contain"
                     )}
                   />
                 )}

@@ -55,7 +55,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
             playsInline
             className={cn(
               "w-full h-full transition-all duration-700 ease-out",
-              title === 'Mindloop Landing' ? "object-cover" : "object-contain"
+              (title === 'Mindloop Landing' || title === 'Innovation') ? "object-cover" : "object-contain"
             )}
           />
         ) : (
