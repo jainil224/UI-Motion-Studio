@@ -1,4 +1,4 @@
-# UI Motion Studio 🎬✨
+# UI Motion Studio 🎬✨----
 
 Welcome to **UI Motion Studio** – A premium, futuristic SaaS platform providing high-quality animated landing page templates and AI-powered prompt libraries. Users can explore beautifully crafted, copy-paste-ready motion designs to instantly generate modern websites.
 
