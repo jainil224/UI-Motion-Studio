@@ -26,7 +26,7 @@ export const FeaturesSection = () => {
   return (
     <section className="py-24 px-6 relative w-full overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[800px] max-h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <div className="text-center mb-16 relative z-10">

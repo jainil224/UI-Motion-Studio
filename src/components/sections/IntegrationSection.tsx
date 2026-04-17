@@ -24,11 +24,11 @@ export const IntegrationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-3xl p-10 md:p-20 text-center flex flex-col items-center group shadow-2xl shadow-primary/10"
+          className="relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-3xl p-10 md:p-20 text-center flex flex-col items-center group shadow-xl shadow-primary/5"
         >
           {/* Intense Glow & Grid Portal Background (from UI-LAYOUT reference) */}
           <div className="absolute inset-x-0 top-0 h-80 overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] pointer-events-none opacity-50">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,#7C3AED,transparent_90%)] opacity-40" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,#7C3AED,transparent_90%)] opacity-25" />
             
             {/* High-Tech Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:70px_80px]" />
@@ -43,7 +43,7 @@ export const IntegrationSection = () => {
             />
           </div>
 
-          <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/20 flex items-center justify-center mb-8 relative z-10 animate-pulse transition-transform group-hover:scale-110 duration-500 shadow-xl shadow-primary/20">
+          <div className="w-20 h-20 rounded-2xl bg-white/5 border border-white/20 flex items-center justify-center mb-8 relative z-10 animate-pulse transition-transform group-hover:scale-110 duration-500 shadow-lg shadow-primary/10">
             <Network className="w-10 h-10 text-white" />
           </div>
 
@@ -59,7 +59,7 @@ export const IntegrationSection = () => {
             href="https://ui-hub-design.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="px-8 py-4 rounded-full bg-white text-black font-semibold text-lg hover:shadow-[0_0_40px_rgba(124,58,237,0.4)] transition-all flex items-center gap-2 group relative z-10 hover:scale-105"
+            className="px-8 py-4 rounded-full bg-white text-black font-semibold text-lg hover:shadow-[0_0_25px_rgba(124,58,237,0.25)] transition-all flex items-center gap-2 group relative z-10 hover:scale-105"
           >
             Explore UI HUB
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -7,6 +7,145 @@ import { GradientText } from '../ui/GradientText';
 
 const templates = [
   {
+    title: 'COSMIC DESIGN',
+    category: 'High-end UI / Cinematic',
+    video: '/videos/COSMIC DESIGN.mp4',
+    prompt: `[MASTER PROJECT PROMPT: COSMIC DESIGN SYSTEM]
+
+Objective:
+Build a high-end, cinematic, single-page React application using Tailwind CSS and Framer Motion (motion/react). The aesthetic should be "Cosmic/Interdimensional" with a sleek, polished interface.
+
+---
+
+1. GLOBAL THEMED STYLING
+
+Fonts:
+Primary font is 'Rubik' (sans-serif). Load weights 700, 800, and 900 from Google Fonts.
+
+Colors:
+
+* Brand Dark: #161a20
+* Brand Blue: #21346e
+* Cosmic Text: #f0f9ff (ethereal light blue-white)
+* Cosmic Cyan: #22d3ee (vibrant highlight)
+
+Overlay:
+Apply a persistent grain texture at 20% opacity using a background-image SVG across the entire site.
+
+Effects:
+Create two "Text Glow" utilities:
+
+* Small: text-shadow: 0 0 15px rgba(186, 230, 253, 0.4)
+* Large: text-shadow: 0 0 30px rgba(186, 230, 253, 0.5)
+
+---
+
+2. NAVIGATION & LAYOUT
+
+Navigation:
+Fixed navigation bar at the top with "STARGAZE" logo (font-weight 900) and a "MENU +" indicator.
+
+Container:
+Max-width: 7xl
+Padding: px-6 (mobile), px-16 (desktop)
+
+---
+
+3. SECTION SEQUENCE
+
+Section 1: Hero
+
+* Height: Full-screen (h-screen)
+* Background Video:
+  https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/A_surreal_cosmic_202604171011_mw88nj.mp4
+* Video Styling:
+  Absolute/fixed positioning, object-cover, scale 1.05, with 30% dark overlay
+* Content:
+  Three-line vertical headline:
+  "NEW ERA / OF DESIGN (cyan) / STARTS NOW"
+* Typography:
+  Font-weight 900, uppercase, responsive size (6xl to ~100px), line-height 0.98, text-glow-lg
+* CTA Button:
+  Custom SVG button with white background and dark blue text "GET STARTED"
+
+---
+
+Section 2: The Architect (Profile Animation)
+
+* Background: #0a0a0a
+* Layout: Responsive 2-column grid
+
+Left Column:
+
+* Subtitle: "The Architect"
+* Headline: "SHIFTING YOUR / PERSPECTIVE" (cyan highlight)
+* Body text
+* CTA link: "EXPLORE AUTHENTICITY" with custom underline hover animation
+
+Right Column:
+
+* Video Container: Pulsing border effect
+* Video Source:
+  https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/chnage_the_poziation_202604171012_dhkwqz.mp4
+* Video Styling:
+  Scale 1.1, origin-top, object-cover, optimized to hide watermark while keeping face visible
+
+---
+
+Section 3: Dimensions of Reality (Features)
+
+* Background: Brand Dark
+* Header Title: "EXPANDING THE LIMITS OF SPACE"
+
+Grid Layout:
+
+* 3 columns
+* Each card: dark background, border (white/10), numbered index (01, 02, 03)
+
+Interaction:
+
+* Smooth hover effect with slight background lightening
+
+---
+
+Section 4: The Odyssey (Call to Action)
+
+* Full-screen section
+* Background: Animated glowing orb (Brand Blue with blur effect)
+
+Content:
+
+* Headline: "JOIN THE / ODYSSEY" (cyan highlight)
+
+Buttons:
+
+* Primary: "ENTER PORTAL" (white filled button)
+* Secondary: "VIEW DOCUMENTATION" (underlined text style)
+
+Footer:
+
+* Minimal centered branding
+* Include copyright and short slogan
+
+---
+
+4. ANIMATION & INTERACTION
+
+* Use Framer Motion (motion/react) for all animations
+* All elements should animate on scroll (whileInView)
+* Animation styles: fade-in, slide-up, smooth easing
+
+Videos:
+
+* autoPlay
+* loop
+* muted
+* playsInline
+
+Ensure high performance, smooth rendering, and cinematic transitions throughout the application.`,
+    isPremium: true,
+  },
+  {
     title: 'Synapse Hero',
     category: 'SaaS / Tech',
     video: '/videos/synapse.mp4',
@@ -1067,7 +1206,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
               Unlock Your AI <br />
               <span className="relative inline-block mt-4">
                 Design{" "}
-                <GradientText animate className="drop-shadow-[0_0_20px_rgba(124,58,237,0.3)]">
+                <GradientText animate className="drop-shadow-[0_0_15px_rgba(124,58,237,0.2)]">
                   Superpowers
                 </GradientText>
               </span>

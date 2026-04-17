@@ -30,7 +30,7 @@ export const HeroSection = () => {
           </FlipText>
           <FlipText 
             duration={0.8} 
-            className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient drop-shadow-[0_0_15px_rgba(124,58,237,0.3)] leading-normal"
+            className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient drop-shadow-[0_0_10px_rgba(124,58,237,0.2)] leading-normal"
           >
             Superpowers
           </FlipText>

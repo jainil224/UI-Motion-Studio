@@ -25,17 +25,17 @@ export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: Envelop
           border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 10px;
           transform: scale(0.8);
-          box-shadow: rgba(255, 255, 255, 0.1) 0px 30px 70px 0px;
+          box-shadow: rgba(255, 255, 255, 0.05) 0px 20px 50px 0px;
           transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         }
         .env-card .main {
           width: 100%;
           height: 100%;
           overflow: hidden;
-          background: linear-gradient(0deg, #0a0a0a 0%, #ffffff 60%, #0a0a0a 100%);
+          background: linear-gradient(0deg, #0a0a0a 0%, rgba(255, 255, 255, 0.45) 55%, #0a0a0a 100%);
           position: relative;
           clip-path: polygon(0 0, 100% 0, 100% 40px, 100% calc(100% - 40px), calc(100% - 40px) 100%, 40px 100%, 0 calc(100% - 40px));
-          box-shadow: rgba(255, 255, 255, 0.1) 0px 7px 29px 0px;
+          box-shadow: rgba(255, 255, 255, 0.05) 0px 5px 20px 0px;
           transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         }
         .env-card .main .top {
@@ -96,7 +96,7 @@ export const EnvelopeCard = ({ title, description, hueRotate = '0deg' }: Envelop
 
         .env-card:hover .boxshadow {
           transform: scale(1);
-          box-shadow: rgba(255, 255, 255, 0.3) 0px 30px 100px 0px;
+          box-shadow: rgba(255, 255, 255, 0.15) 0px 25px 80px 0px;
         }
         .env-card:hover .main {
           transform: scale(1.05);
