@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import { Network, ArrowRight } from 'lucide-react';
 import { GradientText } from '../ui/GradientText';
 import { Sparkles } from '../ui/sparkles';
@@ -7,7 +7,14 @@ import RevealLoader from '../ui/reveal-loader';
 
 export const IntegrationSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: '-15%' });
+  
+  // Track scroll progress of this section as it moves through the viewport
+  // Starts when the top of the section enters the bottom of the viewport
+  // Ends when the center of the section reaches the center of the viewport
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
 
   return (
     <section id="guide" ref={sectionRef} className="py-24 px-6 relative overflow-hidden bg-black">
@@ -30,18 +37,14 @@ export const IntegrationSection = () => {
           transition={{ duration: 0.8 }}
           className="relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-3xl p-10 md:p-20 text-center flex flex-col items-center group shadow-xl shadow-primary/5"
         >
-          {/* Cinematic Reveal Loader — loops continuously once section is in view */}
-          {isInView && (
-            <RevealLoader
-              text="UI HUB"
-              bgColors={["#ffffff", "#f1f5f9", "#e2e8f0"]}
-              staggerOrder="center-out"
-              textFadeDelay={0.3}
-              numPanels={8}
-              duration={0.65}
-              pauseBetweenLoops={1400}
-            />
-          )}
+          {/* Scroll-driven Reveal Loader */}
+          <RevealLoader
+            text="UI HUB"
+            bgColors={["#ffffff", "#f1f5f9", "#e2e8f0"]}
+            staggerOrder="center-out"
+            numPanels={8}
+            scrollYProgress={scrollYProgress}
+          />
 
           {/* Intense Glow & Grid Portal Background */}
           <div className="absolute inset-x-0 top-0 h-80 overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] pointer-events-none opacity-50">

@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, MotionValue, useTransform } from "framer-motion";
 
 type StaggerOrder = "left-to-right" | "right-to-left" | "center-out" | "edges-in";
 
@@ -9,88 +9,77 @@ interface RevealLoaderProps {
   text?: string;
   bgColors?: string[];
   staggerOrder?: StaggerOrder;
-  textFadeDelay?: number;
   numPanels?: number;
-  duration?: number;
-  pauseBetweenLoops?: number;
-  onComplete?: () => void;
+  scrollYProgress: MotionValue<number>;
   className?: string;
 }
 
-function getPanelDelay(index: number, total: number, order: StaggerOrder): number {
+function getPanelProgressRange(index: number, total: number, order: StaggerOrder): [number, number] {
+  // We map each panel to start at a certain point between 0 and 0.6 of the full scroll progress
+  // So the last panel finishes its animation well before 1.0.
+  let delayAmount = 0;
+  
   switch (order) {
     case "left-to-right":
-      return (index / total) * 0.4;
+      delayAmount = index / (total - 1);
+      break;
     case "right-to-left":
-      return ((total - 1 - index) / total) * 0.4;
+      delayAmount = (total - 1 - index) / (total - 1);
+      break;
     case "center-out": {
       const center = (total - 1) / 2;
-      return (Math.abs(index - center) / center) * 0.4;
+      delayAmount = Math.abs(index - center) / center;
+      break;
     }
     case "edges-in": {
       const center = (total - 1) / 2;
-      return ((center - Math.abs(index - center)) / center) * 0.4;
+      delayAmount = (center - Math.abs(index - center)) / center;
+      break;
     }
     default:
-      return (index / total) * 0.4;
+      delayAmount = index / (total - 1);
   }
+
+  // scale delayAmount to a max stagger of 0.4
+  const start = delayAmount * 0.4;
+  // each panel takes 0.3 of the scroll progress to animate open
+  const end = start + 0.3;
+  
+  return [start, end];
 }
 
 const RevealLoader: React.FC<RevealLoaderProps> = ({
   text = "UI HUB",
   bgColors = ["#0a0a0a", "#1a1a2e"],
   staggerOrder = "center-out",
-  textFadeDelay = 0.2,
   numPanels = 8,
-  duration = 0.65,
-  pauseBetweenLoops = 1200,
-  onComplete,
+  scrollYProgress,
   className = "",
 }) => {
-  const [cycleKey, setCycleKey] = useState(0);
-  const [phase, setPhase] = useState<"cover" | "reveal">("cover");
-  const panelsDoneCount = useRef(0);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Text fade out mapping
+  // The text scales/fades out early in the scroll so it's gone before the panels fully open
+  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.3], [0, -20]);
 
-  const scheduleNextCycle = useCallback(() => {
-    timerRef.current = setTimeout(() => {
-      panelsDoneCount.current = 0;
-      setPhase("cover");
-      setCycleKey((k) => k + 1);
-    }, pauseBetweenLoops);
-  }, [pauseBetweenLoops]);
-
-  const handlePanelDone = useCallback(() => {
-    panelsDoneCount.current += 1;
-    if (panelsDoneCount.current === numPanels) {
-      onComplete?.();
-      scheduleNextCycle();
-    }
-  }, [numPanels, onComplete, scheduleNextCycle]);
-
-  // After each new cycle starts with "cover", switch to "reveal" after a short pause
-  useEffect(() => {
-    if (phase === "cover") {
-      const t = setTimeout(() => setPhase("reveal"), 100);
-      return () => clearTimeout(t);
-    }
-  }, [phase, cycleKey]);
-
-  useEffect(() => {
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
+  // Overall pointer events for the container: if scroll progress is > 0.8, we can let clicks pass through
+  const pointerEvents = useTransform(scrollYProgress, (v) => (v > 0.8 ? "none" : "auto"));
 
   return (
-    <div
-      className={`absolute inset-0 overflow-hidden rounded-3xl pointer-events-none z-[50] ${className}`}
+    <motion.div
+      className={`absolute inset-0 overflow-hidden rounded-3xl z-[50] ${className}`}
+      style={{ pointerEvents }}
     >
-      <div key={cycleKey} className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center">
         {/* Panels */}
-        <div className="absolute inset-0 flex">
+        <div className="absolute inset-0 flex pointer-events-none">
           {Array.from({ length: numPanels }).map((_, i) => {
-            const delay = getPanelDelay(i, numPanels, staggerOrder);
+            const [start, end] = getPanelProgressRange(i, numPanels, staggerOrder);
+            
+            // Map the scrollYProgress to scaleY for this specific panel
+            // When we start scrolling (0), scale is 1 (closed).
+            // When we hit 'start', it begins to scale down to 0 (open) at 'end'.
+            const scaleY = useTransform(scrollYProgress, [start, end], [1, 0]);
+            
             const bg =
               bgColors.length > 1
                 ? `linear-gradient(180deg, ${bgColors[i % bgColors.length]}, ${
@@ -102,38 +91,20 @@ const RevealLoader: React.FC<RevealLoaderProps> = ({
               <motion.div
                 key={i}
                 className="h-full flex-1"
-                style={{ background: bg, transformOrigin: "top" }}
-                initial={{ scaleY: 1 }}
-                animate={phase === "reveal" ? { scaleY: 0 } : { scaleY: 1 }}
-                transition={
-                  phase === "reveal"
-                    ? {
-                        duration,
-                        delay: textFadeDelay + delay,
-                        ease: [0.76, 0, 0.24, 1],
-                      }
-                    : { duration: 0 }
-                }
-                onAnimationComplete={phase === "reveal" ? handlePanelDone : undefined}
+                style={{ 
+                  background: bg, 
+                  transformOrigin: "top",
+                  scaleY 
+                }}
               />
             );
           })}
         </div>
 
-        {/* Text — visible only while panels cover the card */}
+        {/* Text — visible while panels are mostly closed and fading early */}
         <motion.div
           className="relative z-10 pointer-events-none select-none text-center"
-          initial={{ opacity: 0, y: 10 }}
-          animate={
-            phase === "cover"
-              ? { opacity: 1, y: 0 }
-              : { opacity: 0, y: -10 }
-          }
-          transition={{
-            duration: 0.4,
-            delay: phase === "cover" ? 0.05 : 0,
-            ease: "easeOut",
-          }}
+          style={{ opacity: textOpacity, y: textY }}
         >
           <span
             className="text-5xl md:text-7xl font-black tracking-tighter uppercase"
@@ -149,7 +120,7 @@ const RevealLoader: React.FC<RevealLoaderProps> = ({
           </span>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
