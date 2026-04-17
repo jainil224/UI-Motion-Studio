@@ -103,13 +103,13 @@ const RevealLoader: React.FC<RevealLoaderProps> = ({
           style={{ opacity: textOpacity, y: textY }}
         >
           <span
-            className="text-5xl md:text-7xl font-black tracking-tighter uppercase"
+            className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-white"
             style={{
-              background: "linear-gradient(135deg, #0f172a 0%, #7c3aed 55%, #4f46e5 100%)",
+              background: "linear-gradient(135deg, #ffffff 0%, #e0e7ff 55%, #c7d2fe 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
-              filter: "drop-shadow(0 2px 12px rgba(124, 58, 237, 0.3))",
+              filter: "drop-shadow(0 4px 20px rgba(255, 255, 255, 0.4))",
             }}
           >
             {text}

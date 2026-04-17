@@ -41,7 +41,7 @@ export const IntegrationSection = () => {
           {/* Scroll-driven Reveal Loader */}
           <RevealLoader
             text="UI HUB"
-            bgColors={["#ffffff", "#f1f5f9", "#e2e8f0"]}
+            bgColors={["#4A5CFF", "#6F7BFF"]}
             staggerOrder="center-out"
             numPanels={8}
             scrollYProgress={scrollYProgress}
