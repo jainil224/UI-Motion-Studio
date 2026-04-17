@@ -10,14 +10,14 @@ export const IntegrationSection = () => {
   
   // Track scroll progress of this section as it moves through the viewport
   // Starts when the top of the section enters the bottom of the viewport
-  // Ends when the center of the section reaches the center of the viewport
+  // Ends when the center of the card reaches the center of the viewport
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "center center"],
+    offset: ["start 90%", "center center"],
   });
 
   return (
-    <section id="guide" ref={sectionRef} className="py-24 px-6 relative overflow-hidden bg-black">
+    <section id="guide" className="py-24 px-6 relative overflow-hidden bg-black">
       {/* Background Sparkle Field */}
       <div className="absolute inset-0 z-0">
         <Sparkles
@@ -31,6 +31,7 @@ export const IntegrationSection = () => {
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
+          ref={sectionRef}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
