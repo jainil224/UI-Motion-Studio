@@ -1,12 +1,16 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Network, ArrowRight } from 'lucide-react';
 import { GradientText } from '../ui/GradientText';
 import { Sparkles } from '../ui/sparkles';
+import RevealLoader from '../ui/reveal-loader';
 
 export const IntegrationSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-15%' });
+
   return (
-    <section id="guide" className="py-24 px-6 relative overflow-hidden bg-black">
+    <section id="guide" ref={sectionRef} className="py-24 px-6 relative overflow-hidden bg-black">
       {/* Background Sparkle Field */}
       <div className="absolute inset-0 z-0">
         <Sparkles
@@ -19,14 +23,27 @@ export const IntegrationSection = () => {
       </div>
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="relative rounded-3xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-3xl p-10 md:p-20 text-center flex flex-col items-center group shadow-xl shadow-primary/5"
         >
-          {/* Intense Glow & Grid Portal Background (from UI-LAYOUT reference) */}
+          {/* Cinematic Reveal Loader — loops continuously once section is in view */}
+          {isInView && (
+            <RevealLoader
+              text="UI HUB"
+              bgColors={["#ffffff", "#f1f5f9", "#e2e8f0"]}
+              staggerOrder="center-out"
+              textFadeDelay={0.3}
+              numPanels={8}
+              duration={0.65}
+              pauseBetweenLoops={1400}
+            />
+          )}
+
+          {/* Intense Glow & Grid Portal Background */}
           <div className="absolute inset-x-0 top-0 h-80 overflow-hidden [mask-image:radial-gradient(50%_50%,white,transparent)] pointer-events-none opacity-50">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_center,#7C3AED,transparent_90%)] opacity-25" />
             
