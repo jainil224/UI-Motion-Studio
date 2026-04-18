@@ -7,6 +7,103 @@ import { GradientText } from '../ui/GradientText';
 
 const templates = [
   {
+    title: 'LOGOISUM',
+    category: 'Agency / High-End',
+    video: '/videos/LOGOISUM.mp4',
+    prompt: `Build a high-end, single-page React agency website for "Logoisum" using Tailwind CSS and Framer Motion.
+
+STRICT LAYOUT RULES (FOLLOW EXACTLY):
+
+1. Navigation (Fixed Header):
+- Position: fixed top-8 left-1/2 -translate-x-1/2 (perfectly centered)
+- Container: w-[95%] max-w-6xl flex justify-between items-center
+- Style: bg-white/30 backdrop-blur-xl border border-white/20 rounded-[16px] px-6 py-3
+- Layout:
+  - Logo → far left
+  - Menu links → EXACT center (use absolute center or flex tricks)
+  - CTA button → far right
+
+2. Hero Section (Perfect Center Alignment):
+- Section: relative h-screen flex flex-col items-center justify-center text-center px-4
+- Background Video:
+  - absolute inset-0 z-0
+  - object-cover scale-115 (zoom to hide watermark)
+  - Source:
+    https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=Glowing_planet_horizon_202604180918_ppzgnc&autoplay=true&loop=true&muted=true&controls=false&background=true
+- Content:
+  - Center vertically and horizontally
+  - First line:
+    - Font: Barlow Bold
+    - tracking-[-4px]
+    - uppercase
+  - Second line:
+    - text-[84px]
+    - Instrument Serif Italic
+    - leading-[1.1]
+  - Subtext:
+    - mt-8
+    - centered
+
+3. About Section (Split Layout - Left Video):
+- Layout: grid lg:grid-cols-2 gap-20 items-center py-32 px-6
+- Left:
+  - max-w-md w-full centered
+  - aspect-[4/5]
+  - Video:
+    https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=From_KlickPin_CF_green_waves___A_darker_shade_of_magic_Beautiful_views_video_Aesthetic_videos_for_edits_love_z4zdar&autoplay=true&loop=true&muted=true&controls=false&background=true
+- Right:
+  - text-left
+  - Headline: text-6xl font-bold
+  - Paragraph below
+  - Stats bar:
+    flex items-center gap-10
+
+4. Services Section (Split Layout - Right Video):
+- Layout: grid lg:grid-cols-2 gap-20 items-center py-32 px-6 bg-white
+- Left:
+  - text-left
+  - text-black for all content
+- Right:
+  - aspect-square
+  - Create layered tilted card effect using relative positioning
+  - Video inside:
+    https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=person_float_gx8qxp&autoplay=true&loop=true&muted=true&controls=false&background=true
+
+5. Testimonials Section:
+- Headline:
+  - text-center
+  - mt-16 mb-24
+- Cards:
+  - grid-cols-1 md:grid-cols-3 gap-8
+  - Each card:
+    p-10 text-left
+- Logos row:
+  - grid-cols-4 OR flex justify-between
+  - centered below testimonials
+
+6. Global Animation Rules (Framer Motion):
+- Apply to ALL section content wrappers:
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+
+7. Tech + Styling:
+- React (functional components)
+- Tailwind CSS
+- Framer Motion
+- Clean, modern, cinematic UI
+- Smooth scroll behavior
+- Responsive design (mobile + desktop)
+
+IMPORTANT:
+- Maintain pixel-perfect alignment
+- Strictly follow positioning rules
+- Keep layout centered and balanced
+- Ensure videos autoplay, loop, muted, no controls`,
+    isPremium: true,
+  },
+  {
     title: 'COSMIC DESIGN',
     category: 'High-end UI / Cinematic',
     video: '/videos/COSMIC DESIGN.mp4',
