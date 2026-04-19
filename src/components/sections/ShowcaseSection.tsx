@@ -7,6 +7,70 @@ import { GradientText } from '../ui/GradientText';
 
 const templates = [
   {
+    title: 'Liquid Silence',
+    category: 'Cinematic / High-End',
+    video: '/videos/Liquid Silence.mp4',
+    prompt: `Ultra-Cinematic Liquid Hero Section
+
+Create a fullscreen single-page hero section using React + Vite + Tailwind CSS + TypeScript + motion/react with the following technical specifications:
+
+Fonts:
+Heading / Logo: Instrument Serif (Import via Google Fonts).
+Body / UI: Inter (Import via Google Fonts).
+Configure these in your Tailwind theme as font-display and font-sans.
+
+Video Background Layer (z-0):
+URL: https://res.cloudinary.com/dsn0ks2hl/video/upload/q_auto,f_auto/Abstract_flowing_liquid_ecijcc.mp4
+Positioning: fixed, top: -10vh, height: 110vh, width: 100%, object-fit: cover.
+Looping Logic: Implement native loop, muted, playsInline, and autoPlay. To ensure a seamless start, use a 1.5s opacity transition (ease-out) that triggers when the video.readyState >= 2.
+
+Cinematic Overlays:
+Add a mix-blend-multiply gradient overlay: bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/90.
+Add a mix-blend-color tint layer: bg-blue-500/10 to harmonize the background with the UI colors.
+
+Navigation Bar (z-50):
+Background: bg-slate-950/20 with backdrop-blur-md and a thin border-white/5.
+Logo: "Aethera®" in text-3xl, Instrument Serif, text-white, with mix-blend-plus-lighter.
+Menu Items: Home, Studio, About, Journal, Reach Us.
+Hover Style: motion.a that scales to 1.05, adds a text-shadow blue glow (rgba(56, 189, 248, 0.6)), and an animated underline expansion (bg-sky-400).
+CTA Button: "Begin Journey", rounded-full, px-6 py-2, bg-white/10, text-white.
+Hover: Scale to 1.05, change to white background, and add a soft blue outer glow.
+
+Hero Section Content (z-10):
+Layout: Centered min-h-screen, pb-40.
+
+Headline:
+Text: "Beyond silence, we build the eternal."
+Styling: text-8xl, Instrument Serif, text-white, tracking-[-2.46px], leading-[0.95].
+Emphasis: Words "silence," and "the eternal." should be italic, color #38BDF8 (Sky Blue), and use mix-blend-plus-lighter.
+Animation: animate-fade-rise.
+
+Description:
+Text: "Building platforms for brilliant minds, fearless makers, and thoughtful souls. Through the noise, we craft digital havens for deep work and pure flows."
+Styling: text-lg, max-w-2xl, mt-8, text-slate-400.
+Animation: animate-fade-rise-delay.
+
+Main CTA Button:
+Text: "Begin Journey"
+Styling: rounded-full, px-14 py-5, text-base, mt-12, bg-white, text-black, font-bold.
+Advanced Hover: Scale to 1.03, and add a vibrant Sky Blue glow: boxShadow: '0 0 30px rgba(56, 189, 248, 0.6)'.
+Animation: animate-fade-rise-delay-2.
+
+Theme Configuration (Tailwind / CSS):
+Background: Slate Deep (#0F172A)
+Accent: Sky Blue (#38BDF8)
+Foreground: White/Off-white (#F8FAFC)
+
+Animations:
+fade-rise: Opacity 0 → 1, TranslateY 20px → 0 over 0.8s.
+fade-rise-delay: 0.2s delay.
+fade-rise-delay-2: 0.4s delay.
+
+Final Requirement:
+Ensure all elements exhibit perfect responsive behavior, maintaining the dark "Liquid Silence" aesthetic across mobile and desktop. Ensure the video never blinks or stops during its infinite loop.`,
+    isPremium: true,
+  },
+  {
     title: 'LOGOISUM',
     category: 'Agency / High-End',
     video: '/videos/LOGOISUM.mp4',
@@ -1428,7 +1492,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     playsInline
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence') ? "object-cover" : "object-contain"
                     )}
                   />
                 ) : (
@@ -1437,7 +1501,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     alt={selectedTemplate.title}
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence') ? "object-cover" : "object-contain"
                     )}
                   />
                 )}
