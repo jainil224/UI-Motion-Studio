@@ -5,7 +5,16 @@ import { ArrowRight, Rocket, X, Copy, Lock, Terminal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { GradientText } from '../ui/GradientText';
 
-const templates = [
+type Template = {
+  title: string;
+  category: string;
+  video?: string;
+  image?: string;
+  prompt: string;
+  isPremium?: boolean;
+};
+
+const templates: Template[] = [
   {
     title: 'Kinetic Monolith',
     category: 'Architectural / High-End',
