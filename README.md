@@ -32,7 +32,7 @@ See the live codebase features:
 
 Ensure you have Node.js installed, then follow these steps to run the application locally:
 
-1. **Clone the repository:**
+1. ***Clone the repository:**
    ```bash
    git clone https://github.com/jainil224/UI-Motion-Studio.git
    cd UI-Motion-Studio
