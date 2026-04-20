@@ -9,7 +9,7 @@ const templates = [
   {
     title: 'Kinetic Monolith',
     category: 'Architectural / High-End',
-    video: '/videos/Kinetic Monolith.mp4',
+    video: '/videos/Kinetic-Monolith.mp4',
     prompt: `MONOLITH FLUIDITY: ARCHITECTURAL SHOWCASE PROMPT
 
 Create a sophisticated, full-stack React single-page application using Tailwind CSS and Framer Motion that explores themes of architectural permanence and fluid geometry.
@@ -91,7 +91,7 @@ URL: https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=From_Kl
   {
     title: 'Liquid Silence',
     category: 'Cinematic / High-End',
-    video: '/videos/Liquid Silence.mp4',
+    video: '/videos/Liquid-Silence.mp4',
     prompt: `Ultra-Cinematic Liquid Hero Section
 
 Create a fullscreen single-page hero section using React + Vite + Tailwind CSS + TypeScript + motion/react with the following technical specifications:
@@ -252,7 +252,7 @@ IMPORTANT:
   {
     title: 'COSMIC DESIGN',
     category: 'High-end UI / Cinematic',
-    video: '/videos/COSMIC DESIGN.mp4',
+    video: '/videos/COSMIC-DESIGN.mp4',
     prompt: `[MASTER PROJECT PROMPT: COSMIC DESIGN SYSTEM]
 
 Objective:
@@ -748,7 +748,7 @@ Instructions for the AI:
   {
     title: 'Liquid Glass Agency',
     category: 'AI Design / Agency',
-    video: '/videos/Liquid Glass Agency.mp4',
+    video: '/videos/Liquid-Glass-Agency.mp4',
     prompt: `Build a dark, premium, single-page landing page for an AI-powered web design agency using React + Vite + Tailwind CSS + shadcn/ui + Framer Motion (motion/react). The page has a luxury editorial aesthetic -- black backgrounds, white text, liquid glass (glassmorphism) effects, and cinematic video backgrounds.
 
 FONTS
@@ -1091,7 +1091,7 @@ Tag: "Craft". Title: "Design & Execution". Description: "From concept to launch,
   {
     title: 'Mindloop Landing',
     category: 'Newsletter / Platform',
-    video: '/videos/Mindloop Landing.mp4',
+    video: '/videos/Mindloop-Landing.mp4',
     prompt: `Build a dark monochrome landing page called Mindloop — a newsletter/content platform. Use React + Vite + TypeScript + Tailwind CSS + shadcn/ui + Framer Motion. Fonts: Inter (sans) and Instrument Serif (serif, used for italic accent words). The entire theme is pure black (#000) background with white foreground — no colors or gradients beyond monochrome. Install hls.js and framer-motion.
 
 Design System (index.css)
