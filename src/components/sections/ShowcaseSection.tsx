@@ -7,6 +7,88 @@ import { GradientText } from '../ui/GradientText';
 
 const templates = [
   {
+    title: 'Kinetic Monolith',
+    category: 'Architectural / High-End',
+    video: '/videos/Kinetic Monolith.mp4',
+    prompt: `MONOLITH FLUIDITY: ARCHITECTURAL SHOWCASE PROMPT
+
+Create a sophisticated, full-stack React single-page application using Tailwind CSS and Framer Motion that explores themes of architectural permanence and fluid geometry.
+
+1. DESIGN SYSTEM & TYPOGRAPHY
+   Mood: Editorial, mineral, sophisticated, high-end architectural gallery.
+   Fonts:
+   Headline: "Manrope" (Weights: 200, 300, 400). Use for branding and section titles.
+   Body/Labels: "Inter" (Weights: 300, 400, 500). Use for descriptions and UI actions.
+
+Color Palette:
+Primary: Slate-900 (Ink), Slate-500 (Muted).
+Backgrounds: Slate-50 (Warm White), Slate-950 (Deep Night), White.
+Accents: Indigo-500 (Digital Light/Glow).
+
+Layout: Use intentional asymmetry, generous whitespace, and a "zig-zag" media/text rhythm.
+
+2. NAVIGATION BAR
+   Specs: Fixed top, bg-slate-50/60 with backdrop-blur-[32px], bottom border black/5.
+   Logo: "MONOLITH" in Manrope Light, tracking -0.05em, size 2xl.
+   Menu: "Gallery", "Exhibitions", "Archive", "Studio" (Uppercase, 14px, tracking -0.02em).
+   Interaction: Hover triggers a custom white underline with a glow shadow (shadow-[0_0_8px_rgba(255,255,255,0.8)]).
+   Actions: Search icon + "Connect" button (Manrope Light, border Slate-900/10, black fill on hover).
+
+3. HERO SECTION (INTERACTIVE MONOLITH)
+   Background: Full-screen (h-screen) video background using iframe from Cloudinary:
+   URL: https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=Night_landscape_with_202604122245_xp41ro&autoplay=true&loop=true&muted=true&controls=false
+
+Scroll Interaction: Use useScroll to transform video opacity (1 to 0) and scale (1.2 to 1.1) over the first 30% of scroll.
+
+Content:
+Headline: "Timeless Foundations" (Size: clamp(2.5rem, 8vw, 6.5rem), Manrope Light, tracked -0.04em).
+Subtitle: "A curation of structural permanence and fluid geometry..." (Inter Light, 2xl, Max-width: md).
+CTA: "Explore Archive" button. On hover, background turns Indigo-500 with a large rgba(99,102,241,0.5) glow shadow.
+Detail: Vertical animated scroll indicator at the bottom.
+
+4. SECTION: SUBMERGED FLUIDITY (MEDIA LEFT)
+   Layout: 2-column grid.
+
+Media (Left): Aspect ratio 4/5, video-container with iframe:
+URL: https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=From_KlickPin_CF_Live_iPhone_wallpapers_Video___Live_fish_wallpaper_Aquarium_live_wallpaper_Fish_wallpaper_cezh53&autoplay=true&loop=true&muted=true&controls=false
+
+Content (Right): "Biological Symmetry" label. Headline "Submerged Fluidity".
+
+Feature Grid: Two blocks explaining "Rhythmic Pulse" and "Ethereal Depth" in Inter Regular 14px.
+
+5. SECTION: ELEGANCE IN MOTION (ATMOSPHERIC DARK)
+   Background: Deep slate-950.
+
+Visual FX: Two large animated radial blobs (bg-slate-800/20 and bg-indigo-900/10) with blur-[120px] that scale and move continuously to simulate digital particles.
+
+Content:
+Left: Headline "Elegance In Motion".
+Right: Philosophy paragraph + 2 Glassmorphic Cards (White 5% opacity, backdrop blur).
+
+Icons: DraftingCompass and Sun from Lucide.
+
+6. SECTION: CRYSTALLINE GEOMETRY (MEDIA RIGHT)
+   Layout: 2-column grid (Mirrored from previous media section).
+
+Content (Left): "Architectural Precision" label. Headline "Crystalline Geometry".
+
+Detail Items: Feature text items with thick 1px left borders that turn black on hover.
+
+Media (Right): Aspect ratio 4/5, video-container with iframe:
+URL: https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=From_KlickPin_CF_fu5q8f&autoplay=true&loop=true&muted=true&controls=false
+
+7. MOTION SPECIFICATIONS
+   Entry Animation: All section items should use y: 30 to y: 0 entry with opacity: 0 to 1.
+   Ease: Use custom cubic-bezier [0.22, 1, 0.36, 1] for all transitions.
+   Containers: Implement staggerChildren: 0.1 and delayChildren: 0.3 for all text blocks to create a rhythmic entrance.
+   Scroll View: Trigger animations when whileInView with viewport: { once: true }.
+
+8. FOOTER
+   Style: bg-slate-100, border-top slate-200/10, py-20.
+   Content: App name "MONOLITH FLUIDITY", horizontal link menu (Privacy, Terms, Press, etc.), and dynamic year copyright.`,
+    isPremium: true,
+  },
+  {
     title: 'Liquid Silence',
     category: 'Cinematic / High-End',
     video: '/videos/Liquid Silence.mp4',
@@ -1279,37 +1361,6 @@ Final Output Expectation:
 * Minimal but powerful UI with strong brand identity`,
     isPremium: true,
   },
-  {
-    title: 'Space Voyage',
-    category: 'Landing Page',
-    image: '/templates/space-voyage.png',
-    isPremium: true,
-  },
-  {
-    title: 'Liquid Glass Ag...',
-    category: 'Landing Page',
-    image: '/templates/liquid-glass.png',
-    isPremium: false,
-  },
-
-  {
-    title: 'Orbis NFT',
-    category: 'Landing Page',
-    image: '/templates/orbis-nft.png',
-    isPremium: false,
-  },
-  {
-    title: 'Velorah',
-    category: 'Agency',
-    image: '/templates/velorah.png',
-    isPremium: false,
-  },
-  {
-    title: 'Urban Jungle',
-    category: 'Landing Page',
-    image: '/templates/urban-jungle.png',
-    isPremium: true,
-  },
 ];
 
 export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }) => {
@@ -1492,7 +1543,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     playsInline
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith') ? "object-cover" : "object-contain"
                     )}
                   />
                 ) : (
@@ -1501,7 +1552,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     alt={selectedTemplate.title}
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith') ? "object-cover" : "object-contain"
                     )}
                   />
                 )}
