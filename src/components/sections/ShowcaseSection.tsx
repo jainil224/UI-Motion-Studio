@@ -1370,6 +1370,60 @@ Final Output Expectation:
 * Minimal but powerful UI with strong brand identity`,
     isPremium: true,
   },
+  {
+    title: 'SECURIFY',
+    category: 'SaaS / Tech',
+    video: '/videos/SECURIFY.mp4',
+    prompt: `SECURIFY HERO SECTION CREATION PROMPT
+Create a high-fidelity, full-screen SaaS hero section called "securify" using React, TypeScript, and Tailwind CSS with the following technical specifications:
+1. Core Layout & Global Styles
+Container: A relative <main> or <section> covering 100vh and 100vw with overflow-hidden and a #000 (black) background.
+Font: Load the Google Font "Readex Pro" (weights: 300, 400, 500, 600, 700). Set it as the primary sans-serif font.
+Typography Utility: Create a .hero-title class with letter-spacing: -0.04em and line-height: 0.95.
+Global Reset: Ensure html, body, and the root container are h-full. All text must be lowercase.
+2. Background Video
+URL: https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/Abstract_image_smooth_202604281505_xlnxwj.mp4
+Properties: autoPlay, loop, muted, playsInline.
+Styling: absolute inset-0, w-full, h-full, object-cover.
+Overlay: Set opacity-60 on the video and add a pointer-events-none gradient overlay at the bottom (h-48, bg-gradient-to-b from transparent to black).
+3. Floating Pill Navigation
+Positioning: absolute top-0 inset-x-0, z-20, flex justify-between, px-4 md:px-10, pt-6.
+Left Pill (Brand):
+Background: bg-neutral-900/90 with backdrop-blur and rounded-full.
+Content: A white SVG logo (viewBox 0 0 256 256, path mapping M 128 192 L 128 256 L 64.5 256 L 32 223 L 0 192 L 0 128 L 64 128 Z M 256 192 L 256 256 L 192.5 256 L 160 223 L 128 192 L 128 128 L 192 128 Z M 128 64 L 128 128 L 64.5 128 L 32 95 L 0 64 L 0 0 L 64 0 Z M 256 64 L 256 128 L 192.5 128 L 160 95 L 128 64 L 128 0 L 192 0 Z).
+Text: "securify" (text-white, text-sm, tracking-tight).
+Center Pill (Links):
+Visibility: hidden on mobile, flex on md.
+Content: "platform", "solutions", "company", "support".
+Styling: bg-neutral-900/90, backdrop-blur, text-neutral-300, hover:text-white transitions.
+Right Button:
+Text: "get started".
+Styling: bg-white, text-black, rounded-full, px-6, py-3, hover:bg-neutral-200.
+4. Foreground Content (Staggered Typography)
+Structure: Word-based staggered <h1> elements using text-[14vw] md:text-[13vw] and font-medium.
+"protect": absolute top-[18%] left-4 md:left-10.
+"your": absolute top-[38%] right-4 md:right-10.
+"data": absolute top-[58%] left-[18%] md:left-[28%].
+5. Dynamic Stat Blocks
+General Styling: Use text-3xl (mobile) to text-5xl (desktop), white/70 for sublabels, and bg-white/40 for 24px wide diagonal dividers.
+Top Right Block:
+Position: top-[16%] right-4 md:top-[14%] md:right-24.
+Content: Divider (rotate 20deg, hidden on mobile) + "+65k".
+Sublabel: "startups use" (right-aligned).
+Bottom Left Block:
+Position: bottom-24 left-4 md:left-20.
+Content: "+1.5b" + Divider (rotate -20deg, hidden on mobile).
+Sublabel: "gb data was protected".
+Bottom Right Block:
+Position: bottom-16 right-4 md:bottom-20 md:right-20.
+Content: Divider (rotate -20deg, hidden on mobile) + "+300k".
+Sublabel: "downloads" (right-aligned).
+6. Responsive & Interaction Requirements
+Mobile Adjustments: Scale down padding (px-4), font sizes for stats (text-3xl), and hide decorative diagonal dividers.
+Pointer Events: Ensure the foreground content wrapper uses pointer-events-none so the background video remains visible/interactable if needed, while allowing navigation buttons to be clickable.
+Palette Control: Use ONLY Black, White, and Neutral-900 scales. No secondary colors.`,
+    isPremium: true,
+  },
 ];
 
 export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }) => {
@@ -1552,7 +1606,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     playsInline
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY') ? "object-cover" : "object-contain"
                     )}
                   />
                 ) : (
@@ -1561,7 +1615,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     alt={selectedTemplate.title}
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY') ? "object-cover" : "object-contain"
                     )}
                   />
                 )}
