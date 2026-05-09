@@ -1489,6 +1489,71 @@ Interaction Design: All buttons must have a 500ms transition duration. Use mix-b
 Security Errors: Implement a custom JSON error handler for any failed data writes (Status, Path, AuthInfo).`,
     isPremium: true,
   },
+  {
+    title: 'NEXUS',
+    category: 'Corporate / Tech',
+    video: '/videos/NEXUS.mp4',
+    prompt: `NEXUS TECH LANDING PAGE CREATION PROMPT
+Create a modern, futuristic tech company landing page with a looping video background and the following specifications:
+Design Style:
+Mood: Clean, minimal, premium, spacious, and professional startup aesthetic.
+Typography: Modern futuristic tech (Montserrat based).
+Layout: Desktop-first precision with mobile-responsive adjustments.
+Global Styles & Fonts:
+Primary Font: Montserrat (Google Fonts: @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');)
+Colors:
+Nexus Navy: #1a365d
+Nexus Gray: #718096
+Highlight Blue: #3b82f6
+Neutral: White #ffffff, Black #000000, Subtle Gray #9ca3af
+Video Background:
+Source: https://player.cloudinary.com/embed/?cloud_name=dsn0ks2hl&public_id=Animate_designs_in_loop_202605080554_eflzoy&autoplay=true&loop=true&muted=true&controls=false
+Position: Full-screen backdrop, centered (top: 50%, left: 50%, -translate-x-1/2, -translate-y-1/2), pointer-events: none.
+Visuals: aspect-video, min-w-full, min-h-full.
+Navigation Bar:
+Logo: <NEXUS> (Font Size: 18px, Weight: 700, Tracking: 0.5px, Color: Nexus Navy).
+Menu Items: HOME, SOLUTIONS, OUR TEAM, NEWS (Font Size: 12px, Weight: 600, Tracking: 1px, Uppercase, Color: Gray, Hover: Black).
+Top Right CTA: GET IN TOUCH (Font Size: 12px, Weight: 700, Tracking: 1px, Uppercase, Color: Gray, Border-bottom on hover).
+Padding: 24px to 48px horizontal, 32px vertical. Backdrop blur sm.
+Mobile: Hamburger menu for small screens.
+Hero Section Content:
+Main Headline:
+Text: "We drive companies beyond their biggest obstacles"
+Font Size: 64px (Desktop), 32px to 48px (Mobile).
+Weight: 700 (Bold).
+Line Height: 1.05.
+Letter Spacing: -2px.
+Color: Nexus Navy.
+Highlight: "their biggest obstacles" should be color #3b82f6.
+Sub-Heading:
+Text: "Accelerating Growth through IT Strategy, Digital Innovation, and Custom-Built Technology Platforms"
+Font Size: 18px (Desktop), 14px (Mobile).
+Weight: 500 (Medium).
+Line Height: 1.6.
+Color: Nexus Gray.
+Max-width: 42rem.
+Primary Action Button:
+Text: START YOUR JOURNEY
+Font Size: 14px.
+Weight: 700 (Bold).
+Letter Spacing: 2px.
+Special Style: Corner-bracket button (Black background, white text, 12px/32px padding). Subtle 1px corner brackets (top-left and bottom-right) offset by 4px.
+Interaction: Slight scale and bracket shift on hover.
+Footer Component:
+Bottom Text: TRUSTED BY LEADING INNOVATORS WORLDWIDE
+Font Size: 10px (Desktop), 9px (Mobile).
+Weight: 600 (SemiBold).
+Letter Spacing: 3px.
+Text Transform: Uppercase.
+Color: Light Gray.
+Position: Fixed at bottom, 32px to 48px from baseline.
+Component Structure (React/Tailwind Preferred):
+Sticky Header with transparent backdrop-blur.
+Absolute Video container with iframe embed.
+Main container using Flexbox to center hero content vertically.
+Use Motion (Framer Motion) for staggered entrance animations (fade-in + translate-y) on headline, sub-headline, and button.`,
+    isPremium: true,
+  },
 ];
 
 export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }) => {
@@ -1612,7 +1677,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
               )}
             >
               {/* Modal Header - Pinned Top */}
-              <div className="absolute top-0 inset-x-0 z-30 p-5 md:p-8 flex items-center justify-between bg-black/40 backdrop-blur-xl border-b border-white/5">
+              <div className="relative z-30 p-5 md:p-8 flex items-center justify-between bg-black/40 backdrop-blur-xl border-b border-white/5">
                 <div className="flex flex-col gap-0.5">
                   <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
                     {selectedTemplate.title}
@@ -1669,29 +1734,24 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     loop
                     muted
                     playsInline
-                    className={cn(
-                      "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY' || selectedTemplate.title === 'ONYX ELITE') ? "object-cover" : "object-contain"
-                    )}
+                    className="w-full h-full object-contain"
                   />
                 ) : (
                   <img
                     src={selectedTemplate.image}
                     alt={selectedTemplate.title}
-                    className={cn(
-                      "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY' || selectedTemplate.title === 'ONYX ELITE') ? "object-cover" : "object-contain"
-                    )}
+                    className="w-full h-full object-contain"
                   />
                 )}
                 
-                {/* Bottom Gradient Fade */}
-                <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/40 to-transparent pointer-events-none" />
+
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
+
+
     </section>
   );
 };
