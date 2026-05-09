@@ -1421,7 +1421,72 @@ Sublabel: "downloads" (right-aligned).
 6. Responsive & Interaction Requirements
 Mobile Adjustments: Scale down padding (px-4), font sizes for stats (text-3xl), and hide decorative diagonal dividers.
 Pointer Events: Ensure the foreground content wrapper uses pointer-events-none so the background video remains visible/interactable if needed, while allowing navigation buttons to be clickable.
-Palette Control: Use ONLY Black, White, and Neutral-900 scales. No secondary colors.`,
+    Palette Control: Use ONLY Black, White, and Neutral-900 scales. No secondary colors.`,
+    isPremium: true,
+  },
+  {
+    title: 'ONYX ELITE',
+    category: 'Cyberpunk / Luxury',
+    video: '/videos/ONYX ELITE.mp4',
+    prompt: `ONYX ELITE: DIGITAL SOVEREIGN INTERFACE PROMPT
+Create a high-end, luxury cyberpunk web application with a "Digital Sovereign" aesthetic. The interface must use a deep obsidian and gold color palette with precision-engineered technical details and smooth motion transitions.
+LAYOUT & FOUNDATION SPECIFICATIONS
+Background Phase: Pure black (#0a0a0a) base.
+Primary Color Palette:
+Obsidian: #0a0a0a
+Onyx Gold: #d4af37
+Borders/Glass: rgba(212, 175, 55, 0.2) and rgba(255, 255, 255, 0.05)
+Typography (Google Fonts):
+Space Grotesk: Primary UI, Body, and technical labels (Weights: 300, 400, 500, 700).
+Bebas Neue: Used for large, condensed display headings.
+1. HI-TECH HERO SECTION
+Video Background:
+URL: https://res.cloudinary.com/dsn0ks2hl/video/upload/v1/Cyberpunk_portrait_subtle_202604281538_z7up3i.mp4
+Style: Full-screen, object-fit: cover, scale 1.2, contrast boost (1.1), brightness (0.8).
+Overlay: Linear gradient from top (obsidian/60) to middle (transparent) to bottom (obsidian/80).
+HUD Elements (Technical Layer):
+Left side (Top 32px): LAT: 35.6895° N | LNG: 139.6917° E | STATUS: ACTIVE_LINK.
+Style: Font-mono, 10px, tracking 0.2em, gold/40 color, uppercase.
+Content & Interaction:
+Start Experience Button: Transparent with gold border/text. On hover, the gold background slides up from the bottom (translate-y) and text flips to black.
+Explore Archive Link: Text with a leading 1px horizontal line that grows from 32px to 64px on hover.
+Motion: Request framer-motion (or similar) for:
+Staggered entry of HUD elements.
+Floating vertical scroll indicator (1px gradient line) at bottom center.
+2. GLASS NAVIGATION BAR
+Logo: "ONYX_ELITE" (Space Grotesk Light, 24px, 0.4em tracking, color: #d4af37).
+Menu Items: Collections, Atelier, Intelligence, Membership (12px, tracking 0.2em).
+Interactivity:
+Glass blur backdrop (backdrop-blur-xl).
+Thin gold border on the bottom.
+Mobile: X/Menu icon toggle with a 95% opacity obsidian dropdown.
+Right Side: "Reserve Now" button (gold border) + Globe and User icons (gold hover).
+3. BENTO GRID FEATURES (VALUE PROPS)
+Grid Specs: 12-column responsive grid with 24px gaps.
+Component 01 (Large Feature):
+Protocol 01: "NEURAL INTERFACE INTEGRATION".
+Design: Background image of liquid metal (opacity 40%), gold L-bracket design in the top-left corner.
+Component 02 (Quantum Core):
+Icon: Technical CPU chip.
+Tag: MN_CORE_02.
+Effect: Subtle card glow on hover.
+Component 03 (Hardware Specs):
+Design: Background image of golden circuit conduits.
+Data Table: Weight (142G), Alloy (G_TITANIUM). Thin 10% white border separators.
+Component 04 (Global Concierge):
+Split layout: Description on left, Greyscale cinematic portrait in a gold-bordered square on right.
+Action: "VIEW_TIERS" underlined text.
+4. FOOTER & SECURITY LAYER
+Structure: 3-column flex/grid.
+Logo: Centered or Left-aligned "ONYX ELITE" in large tracking.
+Links: Technical Specifications, Security Protocol, Privacy, Terms.
+Style: 10px, uppercase, white/40 color, gold hover effects.
+Copyright: © 2024 ONYX ELITE. ALL RIGHTS RESERVED.
+TECHNICAL REQUIREMENTS FOR IMPLEMENTATION
+Responsiveness: Mobile-first design. Stack bento cards on small screens; use full horizontal layout on desktops (>1280px).
+Smooth Scaling: Video must scale 1.15 on load and maintain centering.
+Interaction Design: All buttons must have a 500ms transition duration. Use mix-blend-mode: exclusion for large overlap text where applicable.
+Security Errors: Implement a custom JSON error handler for any failed data writes (Status, Path, AuthInfo).`,
     isPremium: true,
   },
 ];
@@ -1606,7 +1671,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     playsInline
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY' || selectedTemplate.title === 'ONYX ELITE') ? "object-cover" : "object-contain"
                     )}
                   />
                 ) : (
@@ -1615,7 +1680,7 @@ export const ShowcaseSection = ({ hideHeader = false }: { hideHeader?: boolean }
                     alt={selectedTemplate.title}
                     className={cn(
                       "w-full h-full",
-                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY') ? "object-cover" : "object-contain"
+                      (selectedTemplate.title === 'Mindloop Landing' || selectedTemplate.title === 'Innovation' || selectedTemplate.title === 'Liquid Silence' || selectedTemplate.title === 'Kinetic Monolith' || selectedTemplate.title === 'SECURIFY' || selectedTemplate.title === 'ONYX ELITE') ? "object-cover" : "object-contain"
                     )}
                   />
                 )}
