@@ -5,7 +5,7 @@ import { ShowcaseSection } from '@/components/sections/ShowcaseSection';
 import { UILayoutSection } from '@/components/sections/UILayoutSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { IntegrationSection } from '@/components/sections/IntegrationSection';
-import { PricingSection } from '@/components/sections/PricingSection';
+
 import AsciiWave from '@/components/lightswind/ascii-wave';
 
 export const HomePage = () => {
@@ -20,7 +20,7 @@ export const HomePage = () => {
       <UILayoutSection />
       <FeaturesSection />
       <IntegrationSection />
-      <PricingSection />
+
       
       {/* Decorative Ascii Wave Section */}
       <section className="w-full h-[30vh] md:h-[40vh] relative overflow-hidden border-t border-white/5 opacity-80">
