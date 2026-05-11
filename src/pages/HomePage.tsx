@@ -5,6 +5,7 @@ import { ShowcaseSection } from '@/components/sections/ShowcaseSection';
 import { UILayoutSection } from '@/components/sections/UILayoutSection';
 import { FeaturesSection } from '@/components/sections/FeaturesSection';
 import { IntegrationSection } from '@/components/sections/IntegrationSection';
+import { ScrollAnimationSection } from '@/components/sections/ScrollAnimationSection';
 
 import AsciiWave from '@/components/lightswind/ascii-wave';
 
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <UILayoutSection />
       <FeaturesSection />
       <IntegrationSection />
+      <ScrollAnimationSection />
 
       
       {/* Decorative Ascii Wave Section */}
